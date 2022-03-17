@@ -19,7 +19,7 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [showResults, setShowResults] = useState(false);
   const [showSponsored, setShowSponsored] = useState(false);
-  const [showFilters, setShowFilters] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
 
   // const getProductsEndpointDev =
   //   "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/dev";
