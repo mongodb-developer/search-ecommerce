@@ -20,6 +20,7 @@ const Home = () => {
   const [showResults, setShowResults] = useState(false);
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
+  const [showCode, setShowCode] = useState(false);
 
   // const getProductsEndpointDev =
   //   "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/dev";
@@ -87,12 +88,16 @@ const Home = () => {
                 <CheckBox
                   categories={categories}
                   setCategories={setCategories}
+                  showCode={showCode}
+                  setShowCode={setShowCode}
                 />
                 <Radio
                   options={markets}
                   option={market}
                   setOption={setMarket}
                   title="Marketplace"
+                  showCode={showCode}
+                  setShowCode={setShowCode}
                 />
               </div>
             )}

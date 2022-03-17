@@ -3,26 +3,22 @@ import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const Radio = ({ options, option, setOption, title }) => {
-  const [showCode, setShowCode] = useState(false);
-  const [marketObject, setMarketObject] = useState({});
-
+const Radio = ({
+  options,
+  option,
+  setOption,
+  title,
+  showCode,
+  setShowCode,
+}) => {
+  let marketObject = {
+    text: {
+      query: option,
+      path: "marketplace",
+    },
+  };
   let marketString = JSON.stringify(marketObject, null, 2);
 
-  useEffect(() => {
-    if (option === "") {
-      setShowCode(false);
-      return;
-    }
-    setMarketObject({
-      text: {
-        query: option,
-        path: "marketplace",
-      },
-    });
-    setShowCode(true);
-    // eslint-disable-next-line
-  }, [option]);
   let cName = "";
   if (title === "Marketplace") {
     cName =
@@ -57,11 +53,7 @@ const Radio = ({ options, option, setOption, title }) => {
         </div>
       ))}
       {showCode && (
-        <div
-          onClick={() => {
-            setShowCode(false);
-          }}
-        >
+        <div>
           <SyntaxHighlighter language="javascript" style={atomDark}>
             {marketString}
           </SyntaxHighlighter>
@@ -72,3 +64,23 @@ const Radio = ({ options, option, setOption, title }) => {
 };
 
 export default Radio;
+
+// useEffect(() => {
+//   if (option === "") {
+//     setShowCode(false);
+//     return;
+//   }
+//   setMarketObject({
+//     text: {
+//       query: option,
+//       path: "marketplace",
+//     },
+//   });
+//   setShowCode(true);
+//   // eslint-disable-next-line
+// }, [option]);
+// const [showCode, setShowCode] = useState(false);
+// const [marketObject, setMarketObject] = useState({});
+// onClick={() => {
+//   setShowCode(false);
+// }}

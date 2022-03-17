@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const CheckBox = ({ categories, setCategories }) => {
-  const [showCode, setShowCode] = useState(false);
+const CheckBox = ({ categories, setCategories, showCode, setShowCode }) => {
+  //  const [showCode, setShowCode] = useState(false);
 
   let categoriesObject = {
     text: {
