@@ -22,27 +22,6 @@ const Home = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [showCode, setShowCode] = useState(false);
 
-  // const getProductsEndpointDev =
-  //   "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/dev";
-
-  // const getProductsDev = async () => {
-  //   let productsReturned = await (
-  //     await fetch(`${getProductsEndpointDev}?searchTerm=${searchTerm}`)
-  //   ).json();
-  //   console.log(productsReturned);
-  //   setProducts(productsReturned);
-  //   if (productsReturned.length !== 0) setShowResults(true);
-  // };
-
-  // useEffect(() => {
-  //   if (searchTerm !== "" && searchTerm.length > 2) {
-  //     getProductsDev();
-  //     console.log("GETTING PRODUCTS");
-  //   }
-
-  //   // eslint-disable-next-line
-  // }, [searchTerm]);
-
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/products";
 
@@ -70,6 +49,7 @@ const Home = () => {
 
     // eslint-disable-next-line
   }, [searchTerm, showSponsored, categories, market]); // add all external values your effect function depends on - none in this case  -- currentPage
+  //--------------------------------------------------------
 
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">
@@ -127,6 +107,28 @@ export default Home;
 
 const markets = ["Amazon", "PrimeNow", "AmazonDistribution"];
 
+// const getProductsEndpointDev =
+//   "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/dev";
+
+// const getProductsDev = async () => {
+//   let productsReturned = await (
+//     await fetch(`${getProductsEndpointDev}?searchTerm=${searchTerm}`)
+//   ).json();
+//   console.log(productsReturned);
+//   setProducts(productsReturned);
+//   if (productsReturned.length !== 0) setShowResults(true);
+// };
+
+// useEffect(() => {
+//   if (searchTerm !== "" && searchTerm.length > 2) {
+//     getProductsDev();
+//     console.log("GETTING PRODUCTS");
+//   }
+
+//   // eslint-disable-next-line
+// }, [searchTerm]);
+
+//--------------------------------------------------------
 // let productsReturned = await (
 //   await fetch(
 //     `https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/products?searchTerm=${searchTerm}&page=${currentPage}`

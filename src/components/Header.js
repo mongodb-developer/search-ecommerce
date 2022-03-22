@@ -15,7 +15,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
   const initial = useRef(true);
 
   const Suggestions_AC_Endpoint =
-    "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/names";
+    "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/namesDev";
 
   const handleSubmit = (e) => {
     e.preventDefault();
