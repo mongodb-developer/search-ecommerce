@@ -3,7 +3,7 @@ import UserCard from "./UserCard";
 
 const UserSection = ({ name, image, email, setShowUser }) => {
   return (
-    <div className="absolute top-20 right-20 text-xl text-white bg-black p-8 z-20 rounded-lg">
+    <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
