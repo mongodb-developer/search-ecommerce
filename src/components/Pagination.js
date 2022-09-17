@@ -14,8 +14,8 @@ const Pagination = ({ maxPages, setCurrentPage, currentPage }) => {
   }
 
   return (
-    <nav className="mt-10">
-      <ul className="flex justify-center text-2xl">
+    <nav className="mt-8">
+      <ul className="flex justify-center text-2xl ">
         {pageNumbers.map((number) =>
           currentPage === number ? (
             <button

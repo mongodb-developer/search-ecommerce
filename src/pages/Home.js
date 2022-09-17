@@ -99,11 +99,11 @@ const Home = () => {
               productIndex={productIndex}
             />
           )}
-          {/* <Pagination
+          <Pagination
             maxPages={maxPages}
             setCurrentPage={setCurrentPage}
             currentPage={currentPage}
-          /> */}
+          />
         </Container>
         <div className="mt-8 absolute inset-x-0 bottom-0">
           <Footer />
