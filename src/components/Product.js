@@ -20,14 +20,14 @@ const Product = ({
         }}
         className={
           source === "Home"
-            ? `bg-white w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative`
+            ? "w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative"
             : `bg-white h-48 w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl overflow-auto transition relative`
         }
       >
         <div
           className={
             source === "Home"
-              ? "flex items-end justify-end w-full bg-cover"
+              ? "flex items-end justify-end w-full h-48 bg-cover"
               : "flex items-end justify-end h-36 w-full bg-cover"
           }
         >
@@ -36,7 +36,7 @@ const Product = ({
             alt={product.name}
             className={
               source === "Home"
-                ? "object-scale-down w-full"
+                ? "object-scale-down h-36 w-full"
                 : "object-scale-down h-28 w-full"
             }
           />
