@@ -1,14 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 
-import {
-  ShoppingCartIcon,
-  MenuIcon,
-  SearchIcon,
-  HiUserCircle,
-} from "@heroicons/react/outline";
+import { ShoppingCartIcon, SearchIcon } from "@heroicons/react/outline";
 // import Cart from "./Cart";
 
-const Header = ({ searchTerm, setSearchTerm }) => {
+const Header = ({ searchTerm, setSearchTerm, setShowUser }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [autoComplete, setAutoComplete] = useState([]);
@@ -78,7 +73,12 @@ const Header = ({ searchTerm, setSearchTerm }) => {
               MongoStore
             </div>
             <div className="flex items-center justify-end  space-x-12 w-full">
-              <button className="text-gray-600 focus:outline-none mx-4 sm:mx-0">
+              <button
+                className="text-gray-600 focus:outline-none mx-4 sm:mx-0"
+                onClick={() => {
+                  setShowUser(true);
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

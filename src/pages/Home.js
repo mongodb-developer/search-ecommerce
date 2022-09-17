@@ -12,6 +12,7 @@ import CheckBox from "../components/Checkbox";
 import axios from "axios";
 import RecentlyViewed from "../components/RecentlyViewed";
 import Recommended from "../components/Recommended";
+import UserSection from "../components/UserSection";
 
 const Home = () => {
   const [products, setProducts] = useState(promotedItems);
@@ -26,6 +27,7 @@ const Home = () => {
   const [showProductModal, setShowProductModal] = useState(false);
   const [productIndex, setProductIndex] = useState(-100);
   const [customer, setCustomer] = useState("1111AAAA");
+  const [showUser, setShowUser] = useState(false);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
@@ -60,7 +62,12 @@ const Home = () => {
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">
       <div className=" bg-white w-full ">
-        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        <Header
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          setShowUser={setShowUser}
+        />
+        {showUser && <UserSection setShowUser={setShowUser} />}
         <Container className="flex-grow">
           <Hero
             showFilters={showFilters}
@@ -104,6 +111,7 @@ const Home = () => {
               productIndex={productIndex}
             />
           )}
+          <hr></hr>
           <RecentlyViewed
             recentProducts={recentProducts}
             productIndex={productIndex}
