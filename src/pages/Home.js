@@ -12,13 +12,13 @@ import CheckBox from "../components/Checkbox";
 import axios from "axios";
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(promotedItems);
   const [market, setMarket] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [categories, setCategories] = useState([]);
   const [maxPages, setMaxPages] = useState(10);
   const [searchTerm, setSearchTerm] = useState("");
-  const [showResults, setShowResults] = useState(false);
+  const [showResults, setShowResults] = useState(true);
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
   const [showProductModal, setShowProductModal] = useState(false);
@@ -26,7 +26,6 @@ const Home = () => {
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
-  //   "https://us-east-1.aws.data.mongodb-api.com/app/searchstore-zhtzd/endpoint/products";
 
   const getProducts = async () => {
     let data = {
@@ -117,3 +116,144 @@ const Home = () => {
 export default Home;
 
 const markets = ["Amazon", "PrimeNow", "AmazonDistribution"];
+
+const promotedItems = [
+  {
+    _id: "6320911ce41329d01899de27",
+    category: "Clothing",
+    main_image_url:
+      "https://search-demos.s3.us-east-2.amazonaws.com/cplusplus.jpg",
+    marketplace: "PrimeNow",
+    name: "C++ Hoodie",
+    price: {
+      value: 49,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de28",
+    category: "Clothing",
+    main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/vite.jpg",
+    marketplace: "Amazon",
+    name: "Vite T-Shirt",
+    price: {
+      value: 39,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de29",
+    category: "Clothing",
+    main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/css.jpg",
+    marketplace: "Amazon",
+    name: "CSS Sweater",
+    price: {
+      value: 49,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de2a",
+    category: "Clothing",
+    main_image_url:
+      "https://search-demos.s3.us-east-2.amazonaws.com/mongodb.png",
+    marketplace: "PrimeNow",
+    name: "MongoDB T-Shirt",
+    price: {
+      value: 39,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de2b",
+    category: "Clothing",
+    main_image_url:
+      "https://search-demos.s3.us-east-2.amazonaws.com/github.jpg",
+    marketplace: "Amazon",
+    name: "GitHub Mask",
+    price: {
+      value: 19,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de2c",
+    category: "Clothing",
+    main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/html.jpg",
+    marketplace: "Amazon",
+    name: "HTML T-Shirt",
+    price: {
+      value: 39,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de2d",
+    category: "Clothing",
+    main_image_url:
+      "https://search-demos.s3.us-east-2.amazonaws.com/vscode.jpg",
+    marketplace: "Amazon",
+    name: "VS Code T-Shirt",
+    price: {
+      value: 39,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de2e",
+    category: "Clothing",
+    main_image_url:
+      "https://search-demos.s3.us-east-2.amazonaws.com/node.js.jpg",
+    marketplace: "Amazon",
+    name: "Node.js T-Shirt",
+    price: {
+      value: 39,
+      currency: "USD",
+    },
+  },
+  // {
+  //   _id: "6320911ce41329d01899de2f",
+  //   category: "Clothing",
+  //   main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/npm.jpg",
+  //   marketplace: "Amazon",
+  //   name: "npm Hat",
+  //   price: {
+  //     value: 29,
+  //     currency: "USD",
+  //   },
+  // },
+  // {
+  //   _id: "6320911ce41329d01899de30",
+  //   category: "Clothing",
+  //   main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/java.jpg",
+  //   marketplace: "Amazon",
+  //   name: "Java T-Shirt",
+  //   price: {
+  //     value: 39,
+  //     currency: "USD",
+  //   },
+  // },
+  // {
+  //   _id: "6320911ce41329d01899de31",
+  //   category: "Clothing",
+  //   main_image_url:
+  //     "https://search-demos.s3.us-east-2.amazonaws.com/python.jpg",
+  //   marketplace: "Amazon",
+  //   name: "Python T-Shirt",
+  //   price: {
+  //     value: 39,
+  //     currency: "USD",
+  //   },
+  // },
+  // {
+  //   _id: "6320911ce41329d01899de32",
+  //   category: "Clothing",
+  //   main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/vue.jpg",
+  //   marketplace: "Amazon",
+  //   name: "Vue T-Shirt",
+  //   price: {
+  //     value: 39,
+  //     currency: "USD",
+  //   },
+  // },
+];

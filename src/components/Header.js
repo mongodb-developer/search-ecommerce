@@ -74,10 +74,8 @@ const Header = ({ searchTerm, setSearchTerm }) => {
       <header>
         <div className="container mx-auto px-6 py-3">
           <div className="flex items-center justify-between">
-            <div href="/">
-              <div className="w-full text-green-500 text-2xl font-semibold cursor-pointer">
-                MongoStore
-              </div>
+            <div className="w-full text-green-500 text-2xl font-semibold cursor-pointer">
+              MongoStore
             </div>
             <div className="flex items-center justify-end w-full">
               <button className="text-gray-600 focus:outline-none mx-4 sm:mx-0">
@@ -87,7 +85,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
                 />
               </button>
 
-              <div className="flex sm:hidden">
+              {/* <div className="flex sm:hidden">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   type="button"
@@ -96,44 +94,11 @@ const Header = ({ searchTerm, setSearchTerm }) => {
                 >
                   <MenuIcon className="h-5 w-5" />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
 
-          <nav
-            className={`${
-              isMenuOpen ? "" : "hidden"
-            } sm:flex sm:justify-center sm:items-center mt-4`}
-          >
-            <div className="flex flex-col sm:flex-row">
-              <div className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
-                <div href="/">Home</div>
-              </div>
-              <div className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
-                <div href="/products">Shop</div>
-              </div>
-              <div
-                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
-                href="#"
-              >
-                <div href="/products/category">Categories</div>
-              </div>
-              <a
-                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
-                href="www.mongodb.com"
-              >
-                Contact
-              </a>
-              <a
-                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
-                href="www.mongodb.com"
-              >
-                About
-              </a>
-            </div>
-          </nav>
-
-          <div className="relative mt-6 max-w-lg mx-auto">
+          <div className="relative max-w-lg mx-auto">
             <span className="absolute inset-y-0 left-0 pl-3 flex items-center">
               <SearchIcon className="h-5 w-5" />
             </span>

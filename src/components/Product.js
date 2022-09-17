@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import ProductDescription from "./ProductDescription";
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
@@ -11,7 +10,7 @@ const Product = ({
   setShowProductModal,
 }) => {
   let description = [];
-  let score = product.score.toFixed(3);
+  // let score = product.score.toFixed(3);
   if (product.main_description) {
     description = product.main_description;
   }
@@ -51,11 +50,6 @@ const Product = ({
           <button className="absolute z-10 p-2 rounded-full bg-green-600 text-white mx-5 -mb-4 hover:bg-green-500 focus:outline-none focus:bg-green-500">
             <ShoppingCartIcon className="w-5 h-5" />
           </button>
-          {product.score && (
-            <div className=" p-2 absolute text-lg bg-rose-700 z-10 top-0 shadow-xl rounded-full text-white my-auto mb-0  transform transition duration-500 hover:scale-125 focus:outline-none ">
-              {score}
-            </div>
-          )}
         </div>
 
         <div className="px-5 py-3">
@@ -65,7 +59,7 @@ const Product = ({
               CATEGORY: {product.category}
             </h3>
           )}
-          <span className="text-gray-500 mt-2">price</span>
+          <span className="text-gray-500 mt-2">${product.price.value}</span>
           <h3 className="text-red-500 mt-2">{product.marketplace}</h3>
           {/* {showDescription && ProdDescriptionComponent} */}
         </div>

@@ -11,7 +11,7 @@ const Hero = ({
   return (
     <div
       className="
-    h-96 w-full bg-cover bg-center rounded-md overflow-hidden relative bg-slate-500"
+    h-72 w-full bg-cover bg-center rounded-md overflow-hidden relative bg-slate-500"
     >
       <img
         src={HEROIMAGE}
