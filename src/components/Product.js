@@ -38,7 +38,7 @@ const Product = ({
           setProductIndex(index);
           console.log("PRODUCT INDEX: ", index);
         }}
-        className="w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative"
+        className="bg-white w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative"
       >
         <div className="flex items-end justify-end h-56 w-full bg-cover ">
           <img
