@@ -4,7 +4,7 @@ const Pagination = ({ maxPages, setCurrentPage, currentPage }) => {
   const pageNumbers = [];
 
   console.log("IN PAGINATION");
-  console.log(maxPages);
+  console.log("MAX PAGES: ", maxPages);
 
   // let n = maxPages;
   // let numPages = n[0];

@@ -17,7 +17,7 @@ const Home = () => {
   const [market, setMarket] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [categories, setCategories] = useState([]);
-  const [maxPages, setMaxPages] = useState(10);
+  const [maxPages, setMaxPages] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
   const [showResults, setShowResults] = useState(true);
   const [showSponsored, setShowSponsored] = useState(false);
@@ -40,7 +40,9 @@ const Home = () => {
 
     axios.post(getProductsEndpoint, data).then((res) => {
       setProducts(res.data.products);
-      console.log(res.data.products);
+      setMaxPages(res.data.maxPages);
+      console.log(res.data.maxPages);
+      console.log("Max Pages: ", res.data.products);
       if (res.data.products.length !== 0) setShowResults(true);
     });
   };
@@ -52,7 +54,7 @@ const Home = () => {
     }
 
     // eslint-disable-next-line
-  }, [searchTerm, showSponsored, categories, market]); // add all external values your effect function depends on - none in this case  -- currentPage
+  }, [searchTerm, showSponsored, categories, market, currentPage]); // add all external values your effect function depends on - none in this case  -- currentPage
 
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">

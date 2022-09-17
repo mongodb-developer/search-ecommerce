@@ -44,7 +44,7 @@ const Product = ({
           <img
             src={product.main_image_url}
             alt={product.name}
-            className="object-scale-down h-48 w-full"
+            className="object-scale-down h-36 w-4/5"
           />
 
           <button className="absolute z-10 p-2 rounded-full bg-green-600 text-white mx-5 -mb-4 hover:bg-green-500 focus:outline-none focus:bg-green-500">
@@ -53,7 +53,7 @@ const Product = ({
         </div>
 
         <div className="px-5 py-3">
-          <h3 className="text-gray-900 uppercase">{product.name}</h3>
+          <div className="text-gray-900 text-sm uppercase">{product.name}</div>
           {product.category && (
             <h3 className="text-green-800 text-sm">
               CATEGORY: {product.category}
