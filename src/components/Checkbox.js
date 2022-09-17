@@ -68,7 +68,7 @@ const members = [
     name: "Men",
   },
   {
-    name: "Mobile Phones & Communication",
+    name: "Phones & Communication",
   },
   {
     name: "Women",

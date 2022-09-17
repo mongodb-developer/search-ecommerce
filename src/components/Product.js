@@ -8,28 +8,8 @@ const Product = ({
   setProductIndex,
   showProductModal,
   setShowProductModal,
+  source,
 }) => {
-  let description = [];
-  // let score = product.score.toFixed(3);
-  if (product.main_description) {
-    description = product.main_description;
-  }
-
-  // let price = Object.values(product.price.value)[0];
-
-  //   ProdDescriptionComponent = (
-  //     <ProductDescription
-  //       title={product.name}
-  //       highlights={product.highlights}
-  //       description={description}
-  //       image={product.main_image_url}
-  //       price={product.price}
-  //       category={product.category}
-  //       setShowDescription={setShowDescription}
-  //     />
-  //   );
-  // }
-
   return (
     <div href={`/products/${product._id}`}>
       <div
@@ -38,13 +18,27 @@ const Product = ({
           setProductIndex(index);
           console.log("PRODUCT INDEX: ", index);
         }}
-        className="bg-white w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative"
+        className={
+          source === "Home"
+            ? `bg-white w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative`
+            : `bg-white h-48 w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl overflow-auto transition relative`
+        }
       >
-        <div className="flex items-end justify-end h-56 w-full bg-cover ">
+        <div
+          className={
+            source === "Home"
+              ? "flex items-end justify-end w-full bg-cover"
+              : "flex items-end justify-end h-36 w-full bg-cover"
+          }
+        >
           <img
             src={product.main_image_url}
             alt={product.name}
-            className="object-scale-down h-36 w-4/5"
+            className={
+              source === "Home"
+                ? "object-scale-down w-full"
+                : "object-scale-down h-28 w-full"
+            }
           />
 
           <button className="absolute z-10 p-2 rounded-full bg-green-600 text-white mx-5 -mb-4 hover:bg-green-500 focus:outline-none focus:bg-green-500">
@@ -61,7 +55,6 @@ const Product = ({
           )}
           <span className="text-gray-500 mt-2">${product.price.value}</span>
           <h3 className="text-red-500 mt-2">{product.marketplace}</h3>
-          {/* {showDescription && ProdDescriptionComponent} */}
         </div>
       </div>
     </div>

@@ -8,9 +8,9 @@ const RecentlyViewed = ({
   showProductModal,
 }) => {
   return (
-    <div className="bg-slate-800 w-full rounded my-2">
-      <div className="text-white text-3xl pl-4 pt-2">Recently Viewed</div>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 px-4 py-4">
+    <div className="bg-green-800 w-full rounded my-2 overflow-hidden">
+      <div className="text-white text-2xl pl-4 pt-2">Recently Viewed</div>
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px-4 py-2">
         {recentProducts.map((product, idx) => (
           <Product
             key={idx}
@@ -19,6 +19,7 @@ const RecentlyViewed = ({
             setProductIndex={setProductIndex}
             setShowProductModal={setShowProductModal}
             showProductModal={showProductModal}
+            source="RecentlyViewed"
           />
         ))}
       </div>

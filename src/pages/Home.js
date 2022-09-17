@@ -11,6 +11,7 @@ import Radio from "../components/Radio";
 import CheckBox from "../components/Checkbox";
 import axios from "axios";
 import RecentlyViewed from "../components/RecentlyViewed";
+import Recommended from "../components/Recommended";
 
 const Home = () => {
   const [products, setProducts] = useState(promotedItems);
@@ -67,7 +68,7 @@ const Home = () => {
             showSponsored={showSponsored}
             setShowSponsored={setShowSponsored}
           />
-          <div className="flex flex-grow space-x-8">
+          <div className="flex flex-grow space-x-2">
             {showFilters && (
               <div className="mb-10">
                 <CheckBox
@@ -104,6 +105,13 @@ const Home = () => {
             />
           )}
           <RecentlyViewed
+            recentProducts={recentProducts}
+            productIndex={productIndex}
+            setProductIndex={setProductIndex}
+            showProductModal={showProductModal}
+            setShowProductModal={setShowProductModal}
+          />
+          <Recommended
             recentProducts={recentProducts}
             productIndex={productIndex}
             setProductIndex={setProductIndex}
@@ -270,6 +278,28 @@ const promotedItems = [
 ];
 
 const recentProducts = [
+  {
+    _id: "6320911ce41329d01899de2f",
+    category: "Clothing",
+    main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/npm.jpg",
+    marketplace: "Amazon",
+    name: "npm Hat",
+    price: {
+      value: 29,
+      currency: "USD",
+    },
+  },
+  {
+    _id: "6320911ce41329d01899de30",
+    category: "Clothing",
+    main_image_url: "https://search-demos.s3.us-east-2.amazonaws.com/java.jpg",
+    marketplace: "Amazon",
+    name: "Java T-Shirt",
+    price: {
+      value: 39,
+      currency: "USD",
+    },
+  },
   {
     _id: "6320911ce41329d01899de2f",
     category: "Clothing",
