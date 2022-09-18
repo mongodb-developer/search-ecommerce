@@ -9,7 +9,7 @@ const CurrentUser = () => {
             <div className="relative">
               <img
                 src="https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                className="shadow-xl rounded-full border-none absolute -m-20 -ml-20 lg:-ml-16 max-w-[150px]"
+                className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                 alt="biopic"
               />
             </div>
