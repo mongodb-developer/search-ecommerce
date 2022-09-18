@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
@@ -10,12 +11,42 @@ const Product = ({
   setShowProductModal,
   source,
 }) => {
+  const VIEW_PAGE_EVENT_ENDPOINT =
+    "https://pkc-2396y.us-east-1.aws.confluent.cloud:443/kafka/v3/clusters/lkc-yo8rn7/topics/mongostore-pageviews/records";
+  const viewProductEvent = () => {
+    console.log("SEND VIEW MESSAGE: ", product._id);
+    console.log(product.category);
+    const time = new Date();
+    const timestamp = time.toISOString();
+    console.log(timestamp);
+    const data = {
+      product: product._id,
+      category: product.category,
+      timestamp,
+    };
+
+    const headers = {
+      "content-type": "application/json",
+      customerID: "63229e0ae634e04e58252a71",
+    };
+
+    // axios.post(VIEW_PAGE_EVENT_ENDPOINT, data, { headers: headers }).then(
+    //   (res) => {
+    //     console.log(res);
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+  };
+
   return (
     <div href={`/products/${product._id}`}>
       <div
         onClick={() => {
           setShowProductModal(!showProductModal);
           setProductIndex(index);
+          viewProductEvent();
           console.log("PRODUCT INDEX: ", index);
         }}
         className={
