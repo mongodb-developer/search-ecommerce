@@ -61,6 +61,7 @@ const Home = () => {
     axios.get(getUsersEndpoint).then(response=>{
       console.log(response.data);
       setCustomer(response.data.customer);
+      setCustomerRecentViews(response.data.customer.kwh_recentViews);
       setOtherCustomers(response.data.otherUsers);
     })
   }

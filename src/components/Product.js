@@ -19,25 +19,36 @@ const Product = ({
     const time = new Date();
     const timestamp = time.toISOString();
     console.log(timestamp);
-    const data = {
-      product: product._id,
-      category: product.category,
-      timestamp,
+    const data_raw = {
+      key: {
+        type: "JSON",
+        data: {
+          customerID: "632242b485ad362a32d36862",
+        },
+      },
+      value: {
+        data: {
+          product: product._id,
+          category: product.category,
+          timestamp,
+        },
+      },
     };
 
     const headers = {
       "content-type": "application/json",
-      customerID: "63229e0ae634e04e58252a71",
+      "Authorization":
+        "Basic MjVGSk9UN0JLSzcyTDZHUzpMUWgydSt1MmZYQTFZMFpzZDdtaWN0V0FrZWpiczNoMlRaNkFId2VPL3JlREsyQ1JwQ1VOa2xGQ2huMU96Sysz",
     };
 
-    // axios.post(VIEW_PAGE_EVENT_ENDPOINT, data, { headers: headers }).then(
-    //   (res) => {
-    //     console.log(res);
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    axios.post(VIEW_PAGE_EVENT_ENDPOINT, data_raw, { headers: headers }).then(
+      (res) => {
+        console.log(res);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   };
 
   return (
@@ -46,7 +57,7 @@ const Product = ({
         onClick={() => {
           setShowProductModal(!showProductModal);
           setProductIndex(index);
-          viewProductEvent();
+     //     viewProductEvent();
           console.log("PRODUCT INDEX: ", index);
         }}
         className={
