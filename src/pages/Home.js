@@ -26,11 +26,17 @@ const Home = () => {
   const [showFilters, setShowFilters] = useState(true);
   const [showProductModal, setShowProductModal] = useState(false);
   const [productIndex, setProductIndex] = useState(-100);
-  const [customer, setCustomer] = useState("1111AAAA");
+  const [customer, setCustomer] = useState({});
   const [showUser, setShowUser] = useState(false);
+  const [otherCustomers, setOtherCustomers] = useState([]);
+  const [customerRecentViews, setCustomerRecentViews] =
+    useState(recentProducts);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
+  const getCurrentCustomerEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/single_customer?id=63229e0ae634e04e58252a71`;
+  const getAllCustomersEndpoint =
+    "https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/allCustomers?id=63229e0ae634e04e58252a71";
 
   const getProducts = async () => {
     let data = {
@@ -50,6 +56,25 @@ const Home = () => {
     });
   };
 
+  const getMainCustomer = () => {
+    axios.get(getCurrentCustomerEndpoint).then((response) => {
+      console.log(response.data);
+      setCustomer(response.data);
+      setCustomerRecentViews(response.data.kwh_recentViews);
+    });
+    axios.get(getAllCustomersEndpoint).then((response) => {
+      setOtherCustomers(response.data);
+      console.log(response.data[1].first_name);
+    });
+  };
+
+  useEffect(() => {
+    console.log("GETTING MAIN CUSTOMER");
+    getMainCustomer();
+
+    // eslint-disable-next-line
+  }, []);
+
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 2) {
       getProducts();
@@ -67,7 +92,14 @@ const Home = () => {
           setSearchTerm={setSearchTerm}
           setShowUser={setShowUser}
         />
-        {showUser && <UserSection setShowUser={setShowUser} />}
+        {showUser && (
+          <UserSection
+            setShowUser={setShowUser}
+            customer={customer}
+            setCustomer={setCustomer}
+            otherCustomers={otherCustomers}
+          />
+        )}
         <Container className="flex-grow">
           <Hero
             showFilters={showFilters}
@@ -113,7 +145,7 @@ const Home = () => {
           )}
           <hr></hr>
           <RecentlyViewed
-            recentProducts={recentProducts}
+            recentProducts={customerRecentViews}
             productIndex={productIndex}
             setProductIndex={setProductIndex}
             showProductModal={showProductModal}
@@ -142,6 +174,12 @@ const Home = () => {
 
 export default Home;
 
+const userArray = [
+  { ID: "63229e0ae634e04e58252a71" },
+  { ID: "63229e0ae634e04e58252a72" },
+  { ID: "63229e0ae634e04e58252a73" },
+  { ID: "63229e0ae634e04e58252a74" },
+];
 const markets = ["Amazon", "PrimeNow", "AmazonDistribution"];
 
 const promotedItems = [

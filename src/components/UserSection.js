@@ -2,10 +2,10 @@ import React from "react";
 import UserCard from "./UserCard";
 import CurrentUser from "./CurrentUser";
 
-const UserSection = ({ name, image, email, setShowUser }) => {
+const UserSection = ({ otherCustomers, setShowUser, customer }) => {
   return (
     <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
-      <CurrentUser />
+      <CurrentUser customer={customer} />
       <div className="flex items-center space-x-8 justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,12 +24,12 @@ const UserSection = ({ name, image, email, setShowUser }) => {
 
         <div className="">Other Users</div>
       </div>
-      <UserCard name="Sarah Lester" email="sarah.lester@gmail.com" />
-      <UserCard
-        name="Hans-Peter Grahsl"
-        email="hpg@mongodb-kafkaconnector.com"
-      />
-      <UserCard name="Zelda Wilder" email="zeldaw@yahoo.com" />
+      <div className="flex flex-col">
+        {otherCustomers.map((other) => (
+          <UserCard key={other._id} user={other} />
+        ))}
+      </div>
+
       <div
         className="absolute bottom-2 right-2"
         onClick={() => {
