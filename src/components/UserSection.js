@@ -2,7 +2,12 @@ import React from "react";
 import UserCard from "./UserCard";
 import CurrentUser from "./CurrentUser";
 
-const UserSection = ({ otherCustomers, setShowUser, customer }) => {
+const UserSection = ({
+  otherCustomers,
+  setShowUser,
+  customer,
+  setCurrentCustID,
+}) => {
   return (
     <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
       <CurrentUser customer={customer} />
@@ -26,7 +31,7 @@ const UserSection = ({ otherCustomers, setShowUser, customer }) => {
       </div>
       <div className="flex flex-col">
         {otherCustomers.map((other) => (
-          <UserCard key={other._id} user={other} />
+          <UserCard key={other._id} user={other} setCurrentCustID ={setCurrentCustID}/>
         ))}
       </div>
 

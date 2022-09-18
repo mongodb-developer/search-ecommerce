@@ -29,14 +29,15 @@ const Home = () => {
   const [customer, setCustomer] = useState({});
   const [showUser, setShowUser] = useState(false);
   const [otherCustomers, setOtherCustomers] = useState([]);
+  const [currentCustID, setCurrentCustID] = useState("63229e0ae634e04e58252a73");
   const [customerRecentViews, setCustomerRecentViews] =
     useState(recentProducts);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
-  const getCurrentCustomerEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/single_customer?id=63229e0ae634e04e58252a71`;
+  const getCurrentCustomerEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/single_customer?id=${currentCustID}`;
   const getAllCustomersEndpoint =
-    "https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/allCustomers?id=63229e0ae634e04e58252a71";
+    `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/allCustomers?id=${currentCustID}`;
 
   const getProducts = async () => {
     let data = {
@@ -73,7 +74,7 @@ const Home = () => {
     getMainCustomer();
 
     // eslint-disable-next-line
-  }, []);
+  }, [currentCustID]);
 
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 2) {
@@ -98,6 +99,7 @@ const Home = () => {
             customer={customer}
             setCustomer={setCustomer}
             otherCustomers={otherCustomers}
+            setCurrentCustID={setCurrentCustID}
           />
         )}
         <Container className="flex-grow">
@@ -174,12 +176,6 @@ const Home = () => {
 
 export default Home;
 
-const userArray = [
-  { ID: "63229e0ae634e04e58252a71" },
-  { ID: "63229e0ae634e04e58252a72" },
-  { ID: "63229e0ae634e04e58252a73" },
-  { ID: "63229e0ae634e04e58252a74" },
-];
 const markets = ["Amazon", "PrimeNow", "AmazonDistribution"];
 
 const promotedItems = [
