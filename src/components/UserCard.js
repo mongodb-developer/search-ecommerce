@@ -9,10 +9,10 @@ const UserCard = ({ name, email }) => {
           src="https://images.pexels.com/photos/61100/pexels-photo-61100.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"
           alt="person"
         />
-        <div className="title ml-3 font-bold flex flex-col">
-          <div className="text-base">name</div>
+        <div className="justify-center ml-3 font-bold flex flex-col">
+          <div className="text-base">{name}</div>
 
-          <div className="add font-semibold text-sm italic ">email</div>
+          <div className=" text-gray-500 text-sm italic ">{email}</div>
         </div>
       </div>
       <button className=" flex absolute bottom-0 font-bold right-0 text-xs text-gray-400 space-x-0 my-3.5 mr-3">
