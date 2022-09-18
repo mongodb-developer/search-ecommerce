@@ -30,7 +30,9 @@ const Home = () => {
   const [customer, setCustomer] = useState({});
   const [otherCustomers, setOtherCustomers] = useState([]);
   const [showUser, setShowUser] = useState(false);
-  const [currentCustID, setCurrentCustID] = useState("63229e0ae634e04e58252a71");
+  const [currentCustID, setCurrentCustID] = useState(
+    "63273ef32a32f09fe5d8654f"
+  );
   const [customerRecentViews, setCustomerRecentViews] =
     useState(recentProducts);
 
