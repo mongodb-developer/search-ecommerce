@@ -26,18 +26,18 @@ const Home = () => {
   const [showFilters, setShowFilters] = useState(true);
   const [showProductModal, setShowProductModal] = useState(false);
   const [productIndex, setProductIndex] = useState(-100);
+  
   const [customer, setCustomer] = useState({});
-  const [showUser, setShowUser] = useState(false);
   const [otherCustomers, setOtherCustomers] = useState([]);
-  const [currentCustID, setCurrentCustID] = useState("63229e0ae634e04e58252a73");
+  const [showUser, setShowUser] = useState(false);
+  const [currentCustID, setCurrentCustID] = useState("63229e0ae634e04e58252a71");
   const [customerRecentViews, setCustomerRecentViews] =
     useState(recentProducts);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
-  const getCurrentCustomerEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/single_customer?id=${currentCustID}`;
-  const getAllCustomersEndpoint =
-    `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/allCustomers?id=${currentCustID}`;
+
+  const getUsersEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/users?id=${currentCustID}`;
 
   const getProducts = async () => {
     let data = {
@@ -57,21 +57,17 @@ const Home = () => {
     });
   };
 
-  const getMainCustomer = () => {
-    axios.get(getCurrentCustomerEndpoint).then((response) => {
+  const getCustomersInfo = ()=>{
+    axios.get(getUsersEndpoint).then(response=>{
       console.log(response.data);
-      setCustomer(response.data);
-      setCustomerRecentViews(response.data.kwh_recentViews);
-    });
-    axios.get(getAllCustomersEndpoint).then((response) => {
-      setOtherCustomers(response.data);
-      console.log(response.data[1].first_name);
-    });
-  };
+      setCustomer(response.data.customer);
+      setOtherCustomers(response.data.otherUsers);
+    })
+  }
 
   useEffect(() => {
     console.log("GETTING MAIN CUSTOMER");
-    getMainCustomer();
+    getCustomersInfo();
 
     // eslint-disable-next-line
   }, [currentCustID]);

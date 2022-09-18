@@ -10,7 +10,7 @@ const UserSection = ({
 }) => {
   return (
     <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
-      <CurrentUser customer={customer} />
+      <CurrentUser customer={customer} /> 
       <div className="flex items-center space-x-8 justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
