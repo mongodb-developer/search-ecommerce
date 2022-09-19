@@ -6,50 +6,35 @@ import { ShoppingCartIcon } from "@heroicons/react/outline";
 const Product = ({
   product,
   index,
-
+  customer,
   showProductModal,
   setShowProductModal,
   setDisplayedProduct,
   source,
 }) => {
   const VIEW_PAGE_EVENT_ENDPOINT =
-    "https://pkc-2396y.us-east-1.aws.confluent.cloud:443/kafka/v3/clusters/lkc-yo8rn7/topics/mongostore-pageviews/records";
-  const viewProductEvent = () => {
+    "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
+  const viewProductEvent = async () => {
     console.log("SEND VIEW MESSAGE: ", product._id);
     console.log(product.category);
+
     const time = new Date();
     const timestamp = time.toISOString();
     console.log(timestamp);
-    const data_raw = {
-      key: {
-        type: "JSON",
-        data: {
-          customerID: "632242b485ad362a32d36862",
-        },
-      },
-      value: {
-        data: {
-          product: product._id,
-          category: product.category,
-          timestamp,
-        },
-      },
+    const data = {
+      customerID: customer._id,
+      productID: product._id,
+      category: product.category,
+      timestamp: timestamp,
     };
 
-    const headers = {
-      "content-type": "application/json",
-      Authorization:
-        "Basic MjVGSk9UN0JLSzcyTDZHUzpMUWgydSt1MmZYQTFZMFpzZDdtaWN0V0FrZWpiczNoMlRaNkFId2VPL3JlREsyQ1JwQ1VOa2xGQ2huMU96Sysz",
-    };
-
-    axios.post(VIEW_PAGE_EVENT_ENDPOINT, data_raw, { headers: headers }).then(
-      (res) => {
-        console.log(res);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    try {
+      axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {
+        console.log(res.data);
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -63,7 +48,7 @@ const Product = ({
             _id: product._id,
             category: product.category,
           });
-          //     viewProductEvent();
+          viewProductEvent();
           console.log("PRODUCT INDEX: ", index);
           console.log("PRODUCT ID: ", product._id);
           console.log("PRODUCT NAME: ", product.name);

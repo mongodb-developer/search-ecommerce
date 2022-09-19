@@ -128,6 +128,7 @@ const Home = () => {
                 showProductModal={showProductModal}
                 setShowProductModal={setShowProductModal}
                 setDisplayedProduct={setDisplayedProduct}
+                customer={customer}
               />
             ) : (
               <div className="mt-20 py-2 text-center text-black w-full text-6xl rounded-lg">

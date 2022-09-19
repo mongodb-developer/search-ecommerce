@@ -3,8 +3,8 @@ import Product from "./Product";
 
 const Products = ({
   products,
-setDisplayedProduct,
- 
+  setDisplayedProduct,
+  customer,
   showProductModal,
   setShowProductModal,
 }) => {
@@ -15,7 +15,7 @@ setDisplayedProduct,
           key={idx}
           index={idx}
           product={product}
-         
+          customer={customer}
           setShowProductModal={setShowProductModal}
           showProductModal={showProductModal}
           source="Home"

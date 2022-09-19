@@ -3,12 +3,6 @@ import React from "react";
 const Pagination = ({ maxPages, setCurrentPage, currentPage }) => {
   const pageNumbers = [];
 
-  console.log("IN PAGINATION");
-  console.log("MAX PAGES: ", maxPages);
-
-  // let n = maxPages;
-  // let numPages = n[0];
-
   for (let i = 1; i <= maxPages; i++) {
     pageNumbers.push(i);
   }

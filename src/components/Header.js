@@ -4,7 +4,6 @@ import { ShoppingCartIcon, SearchIcon } from "@heroicons/react/outline";
 // import Cart from "./Cart";
 
 const Header = ({ searchTerm, setSearchTerm, setShowUser }) => {
-  
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [autoComplete, setAutoComplete] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
