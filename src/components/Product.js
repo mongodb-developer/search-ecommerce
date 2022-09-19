@@ -26,6 +26,9 @@ const Product = ({
       productID: product._id,
       category: product.category,
       timestamp: timestamp,
+      name: product.name,
+      price: product.price,
+      main_image_url: product.main_image_url,
     };
 
     try {
