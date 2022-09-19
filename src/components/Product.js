@@ -6,10 +6,10 @@ import { ShoppingCartIcon } from "@heroicons/react/outline";
 const Product = ({
   product,
   index,
-  setProductIndex,
+
   showProductModal,
   setShowProductModal,
-   setDisplayedProduct,
+  setDisplayedProduct,
   source,
 }) => {
   const VIEW_PAGE_EVENT_ENDPOINT =
@@ -38,7 +38,7 @@ const Product = ({
 
     const headers = {
       "content-type": "application/json",
-      "Authorization":
+      Authorization:
         "Basic MjVGSk9UN0JLSzcyTDZHUzpMUWgydSt1MmZYQTFZMFpzZDdtaWN0V0FrZWpiczNoMlRaNkFId2VPL3JlREsyQ1JwQ1VOa2xGQ2huMU96Sysz",
     };
 
@@ -57,12 +57,12 @@ const Product = ({
       <div
         onClick={() => {
           setShowProductModal(!showProductModal);
-          setProductIndex(index);
+
           setDisplayedProduct({
-            name:product.name,
-            _id:product._id,
-            category: product.category
-           })
+            name: product.name,
+            _id: product._id,
+            category: product.category,
+          });
           //     viewProductEvent();
           console.log("PRODUCT INDEX: ", index);
           console.log("PRODUCT ID: ", product._id);
@@ -107,7 +107,6 @@ const Product = ({
           <h3 className="text-red-500 mt-2">{product.marketplace}</h3>
         </div>
       </div>
-      
     </div>
   );
 };

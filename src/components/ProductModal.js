@@ -1,6 +1,6 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-// products, productIndex
+
 const ProductModal = ({ setShowProductModal, displayedProduct }) => {
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
@@ -8,7 +8,7 @@ const ProductModal = ({ setShowProductModal, displayedProduct }) => {
         <div>
           {" "}
           Product Modal - CALL SCOTT'S API with customerID, productID, category,
-          and timestamp - 
+          and timestamp -
         </div>
         <div>Product Name: {displayedProduct.name}</div>
 

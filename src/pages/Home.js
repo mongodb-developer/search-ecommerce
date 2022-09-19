@@ -25,7 +25,6 @@ const Home = () => {
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
   const [showProductModal, setShowProductModal] = useState(false);
-  
   const [displayedProduct, setDisplayedProduct] = useState({});
   const [customer, setCustomer] = useState({});
   const [otherCustomers, setOtherCustomers] = useState([]);
@@ -59,14 +58,14 @@ const Home = () => {
     });
   };
 
-  const getCustomersInfo = ()=>{
-    axios.get(getUsersEndpoint).then(response=>{
+  const getCustomersInfo = () => {
+    axios.get(getUsersEndpoint).then((response) => {
       console.log(response.data);
       setCustomer(response.data.customer);
       setCustomerRecentViews(response.data.customer.kwh_recentViews);
       setOtherCustomers(response.data.otherUsers);
-    })
-  }
+    });
+  };
 
   useEffect(() => {
     console.log("GETTING MAIN CUSTOMER");
@@ -126,8 +125,6 @@ const Home = () => {
             {showResults ? (
               <Products
                 products={products}
-                productIndex={productIndex}
-               
                 showProductModal={showProductModal}
                 setShowProductModal={setShowProductModal}
                 setDisplayedProduct={setDisplayedProduct}
@@ -147,16 +144,12 @@ const Home = () => {
           <hr></hr>
           <RecentlyViewed
             recentProducts={customerRecentViews}
-            productIndex={productIndex}
-          
             showProductModal={showProductModal}
             setShowProductModal={setShowProductModal}
             setDisplayedProduct={setDisplayedProduct}
           />
           <Recommended
             recentProducts={recentProducts}
-            productIndex={productIndex}
-           
             showProductModal={showProductModal}
             setShowProductModal={setShowProductModal}
             setDisplayedProduct={setDisplayedProduct}
