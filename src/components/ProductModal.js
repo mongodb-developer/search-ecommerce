@@ -1,16 +1,16 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-
-const ProductModal = ({ setShowProductModal, products, productIndex }) => {
+// products, productIndex
+const ProductModal = ({ setShowProductModal, displayedProduct }) => {
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
       <div className="relative flex flex-col w-2/3 h-1/6 bg-white border-2 border-black rounded mt-60 p-8">
         <div>
           {" "}
-          Product Modal - CALL SCOTT'S API with customerID, product, category,
-          and timestamp - products[index]
+          Product Modal - CALL SCOTT'S API with customerID, productID, category,
+          and timestamp - 
         </div>
-        <div>{products[productIndex].name}</div>
+        <div>Product Name: {displayedProduct.name}</div>
 
         <ShoppingCartIcon
           className="h-12 w-12 p-1 absolute bottom-0 left-0 ml-3 mb-3 text-white bg-green-600 hover:bg-green-500 rounded-full"

@@ -25,8 +25,8 @@ const Home = () => {
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
   const [showProductModal, setShowProductModal] = useState(false);
-  const [productIndex, setProductIndex] = useState(-100);
   
+  const [displayedProduct, setDisplayedProduct] = useState({});
   const [customer, setCustomer] = useState({});
   const [otherCustomers, setOtherCustomers] = useState([]);
   const [showUser, setShowUser] = useState(false);
@@ -127,9 +127,10 @@ const Home = () => {
               <Products
                 products={products}
                 productIndex={productIndex}
-                setProductIndex={setProductIndex}
+               
                 showProductModal={showProductModal}
                 setShowProductModal={setShowProductModal}
+                setDisplayedProduct={setDisplayedProduct}
               />
             ) : (
               <div className="mt-20 py-2 text-center text-black w-full text-6xl rounded-lg">
@@ -140,24 +141,25 @@ const Home = () => {
           {showProductModal && (
             <ProductModal
               setShowProductModal={setShowProductModal}
-              products={products}
-              productIndex={productIndex}
+              displayedProduct={displayedProduct}
             />
           )}
           <hr></hr>
           <RecentlyViewed
             recentProducts={customerRecentViews}
             productIndex={productIndex}
-            setProductIndex={setProductIndex}
+          
             showProductModal={showProductModal}
             setShowProductModal={setShowProductModal}
+            setDisplayedProduct={setDisplayedProduct}
           />
           <Recommended
             recentProducts={recentProducts}
             productIndex={productIndex}
-            setProductIndex={setProductIndex}
+           
             showProductModal={showProductModal}
             setShowProductModal={setShowProductModal}
+            setDisplayedProduct={setDisplayedProduct}
           />
           <Pagination
             maxPages={maxPages}

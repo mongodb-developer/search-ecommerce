@@ -3,8 +3,8 @@ import Product from "./Product";
 
 const Products = ({
   products,
-
-  setProductIndex,
+setDisplayedProduct,
+ 
   showProductModal,
   setShowProductModal,
 }) => {
@@ -15,10 +15,11 @@ const Products = ({
           key={idx}
           index={idx}
           product={product}
-          setProductIndex={setProductIndex}
+         
           setShowProductModal={setShowProductModal}
           showProductModal={showProductModal}
           source="Home"
+          setDisplayedProduct={setDisplayedProduct}
         />
       ))}
     </div>

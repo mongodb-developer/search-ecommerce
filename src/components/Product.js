@@ -9,6 +9,7 @@ const Product = ({
   setProductIndex,
   showProductModal,
   setShowProductModal,
+   setDisplayedProduct,
   source,
 }) => {
   const VIEW_PAGE_EVENT_ENDPOINT =
@@ -57,8 +58,15 @@ const Product = ({
         onClick={() => {
           setShowProductModal(!showProductModal);
           setProductIndex(index);
-     //     viewProductEvent();
+          setDisplayedProduct({
+            name:product.name,
+            _id:product._id,
+            category: product.category
+           })
+          //     viewProductEvent();
           console.log("PRODUCT INDEX: ", index);
+          console.log("PRODUCT ID: ", product._id);
+          console.log("PRODUCT NAME: ", product.name);
         }}
         className={
           source === "Home"
@@ -99,6 +107,7 @@ const Product = ({
           <h3 className="text-red-500 mt-2">{product.marketplace}</h3>
         </div>
       </div>
+      
     </div>
   );
 };
