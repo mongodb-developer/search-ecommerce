@@ -52,7 +52,6 @@ const Product = ({
             category: product.category,
           });
           viewProductEvent();
-          console.log("PRODUCT INDEX: ", index);
           console.log("PRODUCT ID: ", product._id);
           console.log("PRODUCT NAME: ", product.name);
         }}
@@ -85,14 +84,14 @@ const Product = ({
         </div>
 
         <div className="px-5 py-3">
-          <div className="text-gray-900 text-sm uppercase">{product.name}</div>
+          <div className="text-gray-900 text-sm uppercase">{product?.name}</div>
           {product.category && (
             <h3 className="text-green-800 text-sm">
-              CATEGORY: {product.category}
+              CATEGORY: {product?.category}
             </h3>
           )}
-          <span className="text-gray-500 mt-2">${product.price.value}</span>
-          <h3 className="text-red-500 mt-2">{product.marketplace}</h3>
+          <span className="text-gray-500 mt-2">${product?.price.value}</span>
+          <h3 className="text-red-500 mt-2">{product?.marketplace}</h3>
         </div>
       </div>
     </div>
