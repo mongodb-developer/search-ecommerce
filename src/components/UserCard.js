@@ -19,7 +19,6 @@ const UserCard = ({ user, setCurrentCustID }) => {
       <button
         className=" flex absolute bottom-0 font-bold right-0 text-xs text-gray-400 space-x-0 my-3.5 mr-3"
         onClick={() => {
-          console.log("set userID to ", user._id);
           setCurrentCustID(user._id);
         }}
       >

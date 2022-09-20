@@ -16,12 +16,11 @@ const Product = ({
   const VIEW_PAGE_EVENT_ENDPOINT =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
   const viewProductEvent = async () => {
-    console.log("SEND VIEW MESSAGE: ", product._id);
     console.log(product.category);
 
     const time = new Date();
     const timestamp = time.toISOString();
-    console.log(timestamp);
+
     const data = {
       customerID: customer._id,
       productID: product._id,
@@ -33,9 +32,7 @@ const Product = ({
     };
 
     try {
-      axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {
-        console.log(res.data);
-      });
+      axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
     } catch (error) {
       console.error(error);
     }

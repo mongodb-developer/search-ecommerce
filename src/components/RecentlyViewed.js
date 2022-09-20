@@ -3,10 +3,10 @@ import Product from "./Product";
 
 const RecentlyViewed = ({
   recentProducts,
- 
+
   setShowProductModal,
   showProductModal,
-  setDisplayedProduct
+  setDisplayedProduct,
 }) => {
   return (
     <div className="shadow-2xl bg-gradient-to-r from-green-700 to-green-900 w-full rounded my-2 overflow-hidden">
@@ -17,7 +17,6 @@ const RecentlyViewed = ({
             key={idx}
             index={idx}
             product={product}
-            
             setShowProductModal={setShowProductModal}
             showProductModal={showProductModal}
             source="RecentlyViewed"

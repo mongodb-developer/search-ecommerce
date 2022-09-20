@@ -34,10 +34,8 @@ const Header = ({
       let productNames = await (
         await fetch(autocomplete_names_endpoint)
       ).json();
-      console.log(productNames);
 
       setAutoComplete(productNames);
-      console.log("NAMES: ", autoComplete.length);
     } catch (error) {
       console.error(error);
     }

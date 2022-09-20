@@ -1,7 +1,6 @@
 import React from "react";
 
 const CurrentUser = ({ customer }) => {
-  console.log(customer);
   const name = customer?.first_name + " " + customer?.last_name;
   return (
     <div className="relative max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">

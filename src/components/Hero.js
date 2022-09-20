@@ -29,7 +29,6 @@ const Hero = ({
             <button
               onClick={() => {
                 setShowSponsored(!showSponsored);
-                console.log("CLICK!");
               }}
               className="flex items-center mt-4 px-3 py-2 bg-green-600 text-white text-xl uppercase font-medium rounded hover:bg-green-500 focus:outline-none focus:bg-green-500"
             >

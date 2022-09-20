@@ -33,6 +33,7 @@ const Home = () => {
     "63273ef32a32f09fe5d8654f"
   );
   const [customerRecentViews, setCustomerRecentViews] = useState([]);
+  const [moreLikeThis, setMoreLikeThis] = useState(recentProducts);
   const [viewedProduct, setViewedProduct] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
@@ -40,6 +41,8 @@ const Home = () => {
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
 
   const getUsersEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/users?id=${currentCustID}`;
+
+  const getMoreLikeThisEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?category=${displayedProduct.category}`;
 
   const getProducts = async () => {
     let data = {
@@ -53,8 +56,7 @@ const Home = () => {
     axios.post(getProductsEndpoint, data).then((res) => {
       setProducts(res.data.products);
       setMaxPages(res.data.maxPages);
-      console.log(res.data.maxPages);
-      console.log("Max Pages: ", res.data.products);
+
       if (res.data.products.length !== 0) setShowResults(true);
     });
   };
@@ -66,10 +68,17 @@ const Home = () => {
       setOtherCustomers(response.data.otherUsers);
     });
   };
+  const getMoreLikeThis = () => {
+    axios.get(getMoreLikeThisEndpoint).then((response) => {
+      setMoreLikeThis(response.data);
+      console.log("More Like This: ", response.data);
+    });
+  };
 
   useEffect(() => {
-    console.log("GETTING MAIN CUSTOMER");
     getCustomersInfo();
+    getMoreLikeThis();
+    console.log("GETTING MORE LIKE THIS");
     setViewedProduct(false);
 
     // eslint-disable-next-line
@@ -78,7 +87,6 @@ const Home = () => {
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 2) {
       getProducts();
-      console.log("GETTING PRODUCTS");
     }
 
     // eslint-disable-next-line
@@ -158,14 +166,16 @@ const Home = () => {
               setShowSuggestions={setShowSuggestions}
             />
           )}
-          <Recommended
-            recentProducts={recentProducts}
-            showProductModal={showProductModal}
-            setShowProductModal={setShowProductModal}
-            setDisplayedProduct={setDisplayedProduct}
-            setViewedProduct={setViewedProduct}
-            setShowSuggestions={setShowSuggestions}
-          />
+          {moreLikeThis.length !== 0 && (
+            <Recommended
+              recentProducts={moreLikeThis}
+              showProductModal={showProductModal}
+              setShowProductModal={setShowProductModal}
+              setDisplayedProduct={setDisplayedProduct}
+              setViewedProduct={setViewedProduct}
+              setShowSuggestions={setShowSuggestions}
+            />
+          )}
           <Pagination
             maxPages={maxPages}
             setCurrentPage={setCurrentPage}
