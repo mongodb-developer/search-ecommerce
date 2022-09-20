@@ -32,8 +32,9 @@ const Home = () => {
   const [currentCustID, setCurrentCustID] = useState(
     "63273ef32a32f09fe5d8654f"
   );
-  const [customerRecentViews, setCustomerRecentViews] =
-    useState(recentProducts);
+  const [customerRecentViews, setCustomerRecentViews] = useState([]);
+  const [viewedProduct, setViewedProduct] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
@@ -60,7 +61,6 @@ const Home = () => {
 
   const getCustomersInfo = () => {
     axios.get(getUsersEndpoint).then((response) => {
-      console.log(response.data);
       setCustomer(response.data.customer);
       setCustomerRecentViews(response.data.customer.recentViews);
       setOtherCustomers(response.data.otherUsers);
@@ -70,9 +70,10 @@ const Home = () => {
   useEffect(() => {
     console.log("GETTING MAIN CUSTOMER");
     getCustomersInfo();
+    setViewedProduct(false);
 
     // eslint-disable-next-line
-  }, [currentCustID]);
+  }, [currentCustID, viewedProduct]);
 
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 2) {
@@ -90,6 +91,8 @@ const Home = () => {
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           setShowUser={setShowUser}
+          showSuggestions={showSuggestions}
+          setShowSuggestions={setShowSuggestions}
         />
         {showUser && (
           <UserSection
@@ -129,6 +132,8 @@ const Home = () => {
                 setShowProductModal={setShowProductModal}
                 setDisplayedProduct={setDisplayedProduct}
                 customer={customer}
+                setViewedProduct={setViewedProduct}
+                setShowSuggestions={setShowSuggestions}
               />
             ) : (
               <div className="mt-20 py-2 text-center text-black w-full text-6xl rounded-lg">
@@ -140,20 +145,26 @@ const Home = () => {
             <ProductModal
               setShowProductModal={setShowProductModal}
               displayedProduct={displayedProduct}
+              setViewedProduct={setViewedProduct}
             />
           )}
-          <hr></hr>
-          <RecentlyViewed
-            recentProducts={customerRecentViews}
-            showProductModal={showProductModal}
-            setShowProductModal={setShowProductModal}
-            setDisplayedProduct={setDisplayedProduct}
-          />
+          {customerRecentViews.length !== 0 && (
+            <RecentlyViewed
+              recentProducts={customerRecentViews}
+              showProductModal={showProductModal}
+              setShowProductModal={setShowProductModal}
+              setDisplayedProduct={setDisplayedProduct}
+              setViewedProduct={setViewedProduct}
+              setShowSuggestions={setShowSuggestions}
+            />
+          )}
           <Recommended
             recentProducts={recentProducts}
             showProductModal={showProductModal}
             setShowProductModal={setShowProductModal}
             setDisplayedProduct={setDisplayedProduct}
+            setViewedProduct={setViewedProduct}
+            setShowSuggestions={setShowSuggestions}
           />
           <Pagination
             maxPages={maxPages}

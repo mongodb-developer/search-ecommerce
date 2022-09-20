@@ -3,10 +3,16 @@ import React, { useState, useEffect, useRef } from "react";
 import { ShoppingCartIcon, SearchIcon } from "@heroicons/react/outline";
 // import Cart from "./Cart";
 
-const Header = ({ searchTerm, setSearchTerm, setShowUser }) => {
+const Header = ({
+  searchTerm,
+  setSearchTerm,
+  setShowUser,
+  showSuggestions,
+  setShowSuggestions,
+}) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [autoComplete, setAutoComplete] = useState([]);
-  const [showSuggestions, setShowSuggestions] = useState(false);
+
   const initial = useRef(true);
 
   const Suggestions_AC_Endpoint =

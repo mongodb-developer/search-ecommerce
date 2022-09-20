@@ -1,7 +1,11 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
-const ProductModal = ({ setShowProductModal, displayedProduct }) => {
+const ProductModal = ({
+  setShowProductModal,
+  displayedProduct,
+  setViewedProduct,
+}) => {
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
       <div className="relative flex flex-col w-2/3 h-1/6 bg-white border-2 border-black rounded mt-60 p-8">
@@ -20,6 +24,7 @@ const ProductModal = ({ setShowProductModal, displayedProduct }) => {
           className="absolute bottom-0 right-0 ml-3 mb-3"
           onClick={() => {
             setShowProductModal(false);
+            setViewedProduct(true);
           }}
         >
           {" "}

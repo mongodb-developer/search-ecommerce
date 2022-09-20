@@ -2,7 +2,7 @@ import React from "react";
 
 const CurrentUser = ({ customer }) => {
   console.log(customer);
-  const name = customer.first_name + " " + customer.last_name;
+  const name = customer?.first_name + " " + customer?.last_name;
   return (
     <div className="relative max-w-md mx-auto md:max-w-2xl min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
       <div className="px-6">
@@ -10,7 +10,7 @@ const CurrentUser = ({ customer }) => {
           <div className="w-full flex justify-center">
             <div className="relative">
               <img
-                src={customer.image}
+                src={customer?.image}
                 className="shadow-xl rounded-full align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-[150px]"
                 alt="biopic"
               />
@@ -46,12 +46,12 @@ const CurrentUser = ({ customer }) => {
           </h3>
           <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
             <i className="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
-            {customer.address.street}
+            {customer?.address.street}
           </div>
         </div>
         <div className="mt-6 py-6 border-t border-slate-200 text-center">
           <div className="flex flex-wrap text-slate-700 text-sm justify-center">
-            {customer.email}
+            {customer?.email}
           </div>
         </div>
       </div>

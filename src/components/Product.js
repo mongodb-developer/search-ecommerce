@@ -11,6 +11,7 @@ const Product = ({
   setShowProductModal,
   setDisplayedProduct,
   source,
+  setShowSuggestions,
 }) => {
   const VIEW_PAGE_EVENT_ENDPOINT =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
@@ -45,7 +46,7 @@ const Product = ({
       <div
         onClick={() => {
           setShowProductModal(!showProductModal);
-
+          setShowSuggestions(false);
           setDisplayedProduct({
             name: product.name,
             _id: product._id,
