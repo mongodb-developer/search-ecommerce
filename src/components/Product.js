@@ -48,8 +48,11 @@ const Product = ({
             name: product.name,
             _id: product._id,
             category: product.category,
+            image: product.main_image_url,
+            description: product.main_description,
+            price: product.price.value,
           });
-          viewProductEvent();
+          //   viewProductEvent();
           console.log("PRODUCT ID: ", product._id);
           console.log("PRODUCT NAME: ", product.name);
         }}

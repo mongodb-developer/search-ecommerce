@@ -7,16 +7,6 @@ const RecentlyViewed = ({
   showProductModal,
   setDisplayedProduct,
 }) => {
-  const recentProductsNoRepeat = recentProducts.filter((value, index) => {
-    const _value = JSON.stringify(value);
-    return (
-      index ===
-      recentProducts.findIndex((obj) => {
-        return JSON.stringify(obj) === _value;
-      })
-    );
-  });
-
   const SixProducts = recentProducts.slice(0, 6);
 
   return (
