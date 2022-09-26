@@ -7,6 +7,11 @@ const ProductModal = ({
   displayedProduct,
   setViewedProduct,
 }) => {
+  //console.log("HIGHLIGHTS: ", displayedProduct.highlights);
+  const descriptionWithHighlights = buildHighlightString(
+    displayedProduct.highlights
+  );
+  console.log(descriptionWithHighlights);
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
       <div className="relative flex flex-col w-2/3 h-96 bg-white border-2 border-black rounded mt-60 p-8">
@@ -35,9 +40,9 @@ const ProductModal = ({
           </div>
         </div>
 
-        <div className="text-clip overflow-auto text-sm mt-2">
-          {displayedProduct.description}
-        </div>
+        <div
+          dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
+        ></div>
 
         <ShoppingCartIcon
           className="h-8 w-8 p-1 absolute bottom-0 left-0 ml-3 mb-3 text-white bg-green-600 hover:bg-green-500 rounded-full"
@@ -68,5 +73,21 @@ const ProductModal = ({
     </div>
   );
 };
+
+function buildHighlightString(highlights) {
+  let highlightString = "";
+
+  highlights.forEach((highlight) => {
+    console.log(highlight.texts);
+    let texts = highlight.texts;
+    texts.forEach((text) => {
+      if (text.type === "hit")
+        highlightString += `<span style="color:red; font-weight:bold;"> ${text.value} </span>`;
+      else highlightString += text.value;
+    });
+  });
+
+  return highlightString;
+}
 
 export default ProductModal;

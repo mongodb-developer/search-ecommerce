@@ -51,6 +51,7 @@ const Product = ({
             image: product.main_image_url,
             description: product.main_description,
             price: product.price.value,
+            highlights: product.highlights,
           });
           //   viewProductEvent();
           console.log("PRODUCT ID: ", product._id);
