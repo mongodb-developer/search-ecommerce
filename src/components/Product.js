@@ -54,8 +54,8 @@ const Product = ({
             highlights: product.highlights,
           });
           //   viewProductEvent();
-          console.log("PRODUCT ID: ", product._id);
-          console.log("PRODUCT NAME: ", product.name);
+          console.log("PRODUCT ID: ", product?._id);
+          console.log("PRODUCT NAME: ", product?.name);
         }}
         className={
           source === "Home"
@@ -71,8 +71,8 @@ const Product = ({
           }
         >
           <img
-            src={product.main_image_url}
-            alt={product.name}
+            src={product?.main_image_url}
+            alt={product?.name}
             className={
               source === "Home"
                 ? "object-scale-down h-36 w-full"
@@ -92,7 +92,7 @@ const Product = ({
               CATEGORY: {product?.category}
             </h3>
           )}
-          <span className="text-gray-500 mt-2">${product?.price.value}</span>
+          <span className="text-gray-500 mt-2">${product?.price?.value}</span>
           <h3 className="text-red-500 mt-2">{product?.marketplace}</h3>
         </div>
       </div>

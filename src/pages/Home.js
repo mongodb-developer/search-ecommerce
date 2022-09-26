@@ -42,7 +42,7 @@ const Home = () => {
 
   const getUsersEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/users?id=${currentCustID}`;
 
-  const getMoreLikeThisEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?category=${displayedProduct.category}`;
+  const getMoreLikeThisEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike`;
 
   const getProducts = async () => {
     let data = {
@@ -69,16 +69,18 @@ const Home = () => {
     });
   };
   const getMoreLikeThis = () => {
-    axios.get(getMoreLikeThisEndpoint).then((response) => {
+    const SimilarProductsEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?searchTerm=${searchTerm}`;
+    console.log("SEARCHTERM: ", searchTerm);
+    axios.get(SimilarProductsEndpoint).then((response) => {
       setMoreLikeThis(response.data);
+      console.log("NEW ENDPOINT: ", SimilarProductsEndpoint);
       console.log("More Like This: ", response.data);
     });
   };
 
   useEffect(() => {
     getCustomersInfo();
-    getMoreLikeThis();
-    console.log("GETTING MORE LIKE THIS");
+
     setViewedProduct(false);
 
     // eslint-disable-next-line
@@ -87,6 +89,7 @@ const Home = () => {
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 2) {
       getProducts();
+      getMoreLikeThis();
     }
 
     // eslint-disable-next-line
