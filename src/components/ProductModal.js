@@ -41,6 +41,7 @@ const ProductModal = ({
         </div>
 
         <div
+          className="mt-1 overflow-auto"
           dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
         ></div>
 
