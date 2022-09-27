@@ -42,8 +42,6 @@ const Home = () => {
 
   const getUsersEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/users?id=${currentCustID}`;
 
-  const getMoreLikeThisEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike`;
-
   const getProducts = async () => {
     let data = {
       searchTerm,

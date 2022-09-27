@@ -53,7 +53,8 @@ const Product = ({
             price: product.price.value,
             highlights: product.highlights,
           });
-          //   viewProductEvent();
+
+          viewProductEvent();
           console.log("PRODUCT ID: ", product?._id);
           console.log("PRODUCT NAME: ", product?.name);
         }}
