@@ -67,9 +67,10 @@ const Home = () => {
       setOtherCustomers(response.data.otherUsers);
     });
   };
-  const getMoreLikeThis = () => {
-    const SimilarProductsEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?searchTerm=${searchTerm}`;
+  const getMoreLikeThis = (cat) => {
+    const SimilarProductsEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?searchTerm=${searchTerm}&cat=${cat}`;
     console.log("SEARCHTERM: ", searchTerm);
+    console.log("CATEGORY FOR LIKE: ", cat);
     axios.get(SimilarProductsEndpoint).then((response) => {
       setMoreLikeThis(response.data);
       console.log("NEW ENDPOINT: ", SimilarProductsEndpoint);
@@ -88,16 +89,27 @@ const Home = () => {
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 4) {
       getProducts();
-      getMoreLikeThis();
+      // getMoreLikeThis();
     }
     if (submitted) {
       getProducts();
-      getMoreLikeThis();
+      // getMoreLikeThis();
     }
     setSubmitted(false);
 
     // eslint-disable-next-line
   }, [submitted, searchTerm, showSponsored, categories, market, currentPage]); // add all external values your effect function depends on - none in this case  -- currentPage
+
+  useEffect(() => {
+    if (products.length > 1) {
+      let cat = products[0].category;
+      if (!cat) {
+        cat = "Clothing";
+      }
+      getMoreLikeThis(cat);
+    }
+    // eslint-disable-next-line
+  }, [products]);
 
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">
@@ -177,6 +189,7 @@ const Home = () => {
               setDisplayedProduct={setDisplayedProduct}
               setViewedProduct={setViewedProduct}
               setShowSuggestions={setShowSuggestions}
+              customer={customer}
             />
           )}
           {moreLikeThis.length !== 0 && (
@@ -187,6 +200,7 @@ const Home = () => {
               setDisplayedProduct={setDisplayedProduct}
               setViewedProduct={setViewedProduct}
               setShowSuggestions={setShowSuggestions}
+              customer={customer}
             />
           )}
           <Pagination

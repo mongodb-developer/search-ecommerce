@@ -6,6 +6,8 @@ const RecentlyViewed = ({
   setShowProductModal,
   showProductModal,
   setDisplayedProduct,
+  setShowSuggestions,
+  customer,
 }) => {
   const SixProducts = recentProducts.slice(0, 6);
 
@@ -22,6 +24,8 @@ const RecentlyViewed = ({
             showProductModal={showProductModal}
             source="RecentlyViewed"
             setDisplayedProduct={setDisplayedProduct}
+            setShowSuggestions={setShowSuggestions}
+            customer={customer}
           />
         ))}
       </div>
