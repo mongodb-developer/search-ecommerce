@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { ShoppingCartIcon, SearchIcon } from "@heroicons/react/outline";
-// import Cart from "./Cart";
 
 const Header = ({
   searchTerm,
@@ -9,6 +8,11 @@ const Header = ({
   setShowUser,
   showSuggestions,
   setShowSuggestions,
+  setSubmitted,
+  setDisplayedProduct,
+  showProductModal,
+  setShowProductModal,
+  customer,
 }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [autoComplete, setAutoComplete] = useState([]);
@@ -21,6 +25,7 @@ const Header = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("SEARCHTERM: ", searchTerm);
+    setSubmitted(true);
     setShowSuggestions(false);
   };
 
@@ -61,9 +66,19 @@ const Header = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm]);
 
-  const handleSelect = (name) => {
-    setSearchTerm(name);
+  const handleSelectAutocomplete = (item) => {
+    setSearchTerm(item.name);
+    setDisplayedProduct({
+      name: item.name,
+      _id: item._id,
+      category: item.category,
+      image: item.main_image_url,
+      description: item.main_description,
+      price: item.price.value,
+      highlights: item.highlights,
+    });
     setShowSuggestions(false);
+    setShowProductModal(!showProductModal);
     setAutoComplete([]);
   };
 
@@ -76,6 +91,16 @@ const Header = ({
               MongoStore
             </div>
             <div className="flex items-center justify-end  space-x-12 w-full">
+              <div className="flex items-center">
+                <div className="uppercase mx-2 text-slate-800 text-xl">
+                  Hello, {customer.first_name}{" "}
+                </div>
+                <img
+                  src={customer?.image}
+                  className="shadow-xl rounded-full align-middle border-none w-16"
+                  alt="biopic"
+                />
+              </div>
               <button
                 className="text-gray-600 focus:outline-none mx-4 sm:mx-0"
                 onClick={() => {
@@ -126,7 +151,7 @@ const Header = ({
                     <li
                       key={item._id}
                       className="px-4 py-2 hover:bg-yellow-100 cursor-pointer border-b "
-                      onClick={() => handleSelect(item.name)}
+                      onClick={() => handleSelectAutocomplete(item)}
                     >
                       {item.name}
                     </li>

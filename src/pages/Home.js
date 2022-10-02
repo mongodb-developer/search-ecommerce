@@ -36,6 +36,7 @@ const Home = () => {
   const [moreLikeThis, setMoreLikeThis] = useState(recentProducts);
   const [viewedProduct, setViewedProduct] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
@@ -85,13 +86,18 @@ const Home = () => {
   }, [currentCustID, viewedProduct]);
 
   useEffect(() => {
-    if (searchTerm !== "" && searchTerm.length > 2) {
+    if (searchTerm !== "" && searchTerm.length > 4) {
       getProducts();
       getMoreLikeThis();
     }
+    if (submitted) {
+      getProducts();
+      getMoreLikeThis();
+    }
+    setSubmitted(false);
 
     // eslint-disable-next-line
-  }, [searchTerm, showSponsored, categories, market, currentPage]); // add all external values your effect function depends on - none in this case  -- currentPage
+  }, [submitted, searchTerm, showSponsored, categories, market, currentPage]); // add all external values your effect function depends on - none in this case  -- currentPage
 
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">
@@ -102,6 +108,11 @@ const Home = () => {
           setShowUser={setShowUser}
           showSuggestions={showSuggestions}
           setShowSuggestions={setShowSuggestions}
+          setSubmitted={setSubmitted}
+          setDisplayedProduct={setDisplayedProduct}
+          showProductModal={showProductModal}
+          setShowProductModal={setShowProductModal}
+          customer={customer}
         />
         {showUser && (
           <UserSection
@@ -155,6 +166,7 @@ const Home = () => {
               setShowProductModal={setShowProductModal}
               displayedProduct={displayedProduct}
               setViewedProduct={setViewedProduct}
+              customer={customer}
             />
           )}
           {customerRecentViews.length !== 0 && (

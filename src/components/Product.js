@@ -1,11 +1,9 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
 const Product = ({
   product,
-  index,
   customer,
   showProductModal,
   setShowProductModal,
@@ -13,31 +11,6 @@ const Product = ({
   source,
   setShowSuggestions,
 }) => {
-  const VIEW_PAGE_EVENT_ENDPOINT =
-    "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
-  const viewProductEvent = async () => {
-    console.log(product.category);
-
-    const time = new Date();
-    const timestamp = time.toISOString();
-
-    const data = {
-      customerID: customer._id,
-      productID: product._id,
-      category: product.category,
-      timestamp: timestamp,
-      name: product.name,
-      price: product.price,
-      main_image_url: product.main_image_url,
-    };
-
-    try {
-      axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div href={`/products/${product._id}`}>
       <div
@@ -53,10 +26,6 @@ const Product = ({
             price: product.price.value,
             highlights: product.highlights,
           });
-
-          viewProductEvent();
-          console.log("PRODUCT ID: ", product?._id);
-          console.log("PRODUCT NAME: ", product?.name);
         }}
         className={
           source === "Home"
