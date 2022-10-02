@@ -101,15 +101,17 @@ const Home = () => {
   }, [submitted, searchTerm, showSponsored, categories, market, currentPage]); // add all external values your effect function depends on - none in this case  -- currentPage
 
   useEffect(() => {
-    if (products.length > 1) {
-      let cat = products[0].category;
-      if (!cat) {
-        cat = "Clothing";
-      }
-      getMoreLikeThis(cat);
+    // products.length > 1 ||
+    if (!showProductModal) return;
+
+    let cat = products[0].category;
+    if (!cat) {
+      cat = "Clothing";
     }
+    getMoreLikeThis(cat);
+
     // eslint-disable-next-line
-  }, [products]);
+  }, [showProductModal]);
 
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">
