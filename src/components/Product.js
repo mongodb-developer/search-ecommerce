@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
@@ -11,12 +12,39 @@ const Product = ({
   source,
   setShowSuggestions,
 }) => {
+  const VIEW_PAGE_EVENT_ENDPOINT =
+    "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
+  const viewProductEvent = async () => {
+    console.log("CALLING VIEWPRODUCT ENDPOINT FUNCTION");
+
+    const time = new Date();
+    const timestamp = time.toISOString();
+
+    const data = {
+      customerID: customer._id,
+      productID: product._id,
+      category: product.category,
+      timestamp: timestamp,
+      name: product.name,
+      price: product.price.value,
+      main_image_url: product.main_image_url,
+    };
+
+    console.log("DATA SENT: ", data);
+
+    try {
+      axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div href={`/products/${product._id}`}>
       <div
         onClick={() => {
           setShowProductModal(!showProductModal);
           setShowSuggestions(false);
+          viewProductEvent();
           setDisplayedProduct({
             name: product.name,
             _id: product._id,

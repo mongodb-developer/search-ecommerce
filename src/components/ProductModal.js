@@ -1,50 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 import DataFlow from "../images/ECommerceKafka.gif";
-import axios from "axios";
 
 const ProductModal = ({
   setShowProductModal,
   displayedProduct,
   setViewedProduct,
-  customer,
 }) => {
-  //console.log("HIGHLIGHTS: ", displayedProduct.highlights);
+  console.log("HIGHLIGHTS: ", displayedProduct.highlights);
   const descriptionWithHighlights = buildHighlightString(
     displayedProduct?.highlights
   );
-
-  const VIEW_PAGE_EVENT_ENDPOINT =
-    "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
-  const viewProductEvent = async () => {
-    console.log("CATEGORY: ", displayedProduct.category);
-    console.log("CALLING VIEWPRODUCT ENDPOINT FUNCTION");
-
-    const time = new Date();
-    const timestamp = time.toISOString();
-
-    const data = {
-      customerID: customer._id,
-      productID: displayedProduct._id,
-      category: displayedProduct.category,
-      timestamp: timestamp,
-      name: displayedProduct.name,
-      price: displayedProduct.price,
-      main_image_url: displayedProduct.main_image_url,
-    };
-
-    try {
-      axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    viewProductEvent();
-
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
