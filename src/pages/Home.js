@@ -108,6 +108,7 @@ const Home = () => {
     if (!cat) {
       cat = "Clothing";
     }
+
     getMoreLikeThis(cat);
 
     // eslint-disable-next-line
