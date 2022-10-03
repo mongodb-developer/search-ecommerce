@@ -1,6 +1,6 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-import DataFlow from "../images/ECommerceKafka.gif";
+import DataFlow from "../images/MongoStoreGif.gif";
 
 const ProductModal = ({
   setShowProductModal,
