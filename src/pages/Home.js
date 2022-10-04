@@ -80,11 +80,15 @@ const Home = () => {
 
   useEffect(() => {
     getCustomersInfo();
+    setMoreLikeThis([]);
+    setProducts(promotedItems);
+    setMaxPages(1);
+    setCurrentPage(1);
 
-    setViewedProduct(false);
+    // setViewedProduct(false);
 
     // eslint-disable-next-line
-  }, [currentCustID, viewedProduct]);
+  }, [currentCustID]);
 
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 4) {
@@ -206,11 +210,13 @@ const Home = () => {
               customer={customer}
             />
           )}
-          <Pagination
-            maxPages={maxPages}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-          />
+          {maxPages > 1 && (
+            <Pagination
+              maxPages={maxPages}
+              setCurrentPage={setCurrentPage}
+              currentPage={currentPage}
+            />
+          )}
         </Container>
         <div className="mt-8 absolute inset-x-0 bottom-0">
           <Footer />

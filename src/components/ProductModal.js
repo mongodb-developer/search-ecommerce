@@ -53,7 +53,7 @@ const ProductModal = ({
           className="absolute bottom-0 right-0 ml-3 mb-3"
           onClick={() => {
             setShowProductModal(false);
-            setViewedProduct(true);
+            //   setViewedProduct(true);
           }}
         >
           {" "}
