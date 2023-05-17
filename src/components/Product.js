@@ -32,39 +32,13 @@ const Product = ({
       console.log("More Like This: ", response.data);
     });
   };
-  // const VIEW_PAGE_EVENT_ENDPOINT =
-  //   "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
-  // const viewProductEvent = async () => {
-  //   console.log("CALLING VIEWPRODUCT ENDPOINT FUNCTION");
 
-  //   const time = new Date();
-  //   const timestamp = time.toISOString();
-
-  //   const data = {
-  //     customerID: customer._id,
-  //     productID: product._id,
-  //     category: product.category,
-  //     timestamp: timestamp,
-  //     name: product.name,
-  //     price: product.price.value,
-  //     main_image_url: product.main_image_url,
-  //   };
-
-  //   console.log("DATA SENT: ", data);
-
-  //   try {
-  //     axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   return (
     <div href={`/products/${product._id}`}>
       <div
         onClick={() => {
           setShowProductModal(!showProductModal);
           setShowSuggestions(false);
-          // viewProductEvent();
           getMoreLikeThis();
           setDisplayedProduct({
             name: product.name,
@@ -79,7 +53,7 @@ const Product = ({
         className={
           source === "Home"
             ? "w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl transition relative"
-            : `bg-white h-48 w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl overflow-auto transition relative`
+            : `bg-white h-72 w-full max-w-sm mx-auto rounded-md shadow-md cursor-pointer hover:shadow-2xl overflow-auto transition relative`
         }
       >
         <div
@@ -120,3 +94,30 @@ const Product = ({
 };
 
 export default Product;
+
+// const VIEW_PAGE_EVENT_ENDPOINT =
+//   "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
+// const viewProductEvent = async () => {
+//   console.log("CALLING VIEWPRODUCT ENDPOINT FUNCTION");
+
+//   const time = new Date();
+//   const timestamp = time.toISOString();
+
+//   const data = {
+//     customerID: customer._id,
+//     productID: product._id,
+//     category: product.category,
+//     timestamp: timestamp,
+//     name: product.name,
+//     price: product.price.value,
+//     main_image_url: product.main_image_url,
+//   };
+
+//   console.log("DATA SENT: ", data);
+
+//   try {
+//     axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };

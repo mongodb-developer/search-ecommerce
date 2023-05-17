@@ -6,8 +6,12 @@ import Recommended from "../components/Recommended";
 
 const ProductModal = ({
   setShowProductModal,
+  showProductModal,
+  setDisplayedProduct,
   displayedProduct,
   setViewedProduct,
+  customer,
+  setShowSuggestions,
   moreLikeThis,
 }) => {
   console.log("HIGHLIGHTS: ", displayedProduct.highlights);
@@ -17,7 +21,7 @@ const ProductModal = ({
 
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
-      <div className="relative flex flex-col w-2/3 h-96 bg-white border-2 border-black rounded mt-60 p-8">
+      <div className="relative flex flex-col w-3/4 h-3/4 bg-white border-2 border-black rounded mt-30 p-8">
         <div className="flex">
           <div className="w-1/2 px-10 text-center">
             <div className="text-gray-900 text-sm uppercase ">
@@ -47,17 +51,17 @@ const ProductModal = ({
           className="mt-1 overflow-auto"
           dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
         ></div>
-        {/* {moreLikeThis.length !== 0 && (
-            <Recommended
-              recentProducts={moreLikeThis}
-              showProductModal={showProductModal}
-              setShowProductModal={setShowProductModal}
-              setDisplayedProduct={setDisplayedProduct}
-              setViewedProduct={setViewedProduct}
-              setShowSuggestions={setShowSuggestions}
-              customer={customer}
-            />
-          )} */}
+        {moreLikeThis.length !== 0 && (
+          <Recommended
+            recentProducts={moreLikeThis}
+            showProductModal={showProductModal}
+            setShowProductModal={setShowProductModal}
+            setDisplayedProduct={setDisplayedProduct}
+            setViewedProduct={setViewedProduct}
+            setShowSuggestions={setShowSuggestions}
+            customer={customer}
+          />
+        )}
 
         <ShoppingCartIcon
           className="h-8 w-8 p-1 absolute bottom-0 left-0 ml-3 mb-3 text-white bg-green-600 hover:bg-green-500 rounded-full"
