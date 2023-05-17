@@ -8,6 +8,9 @@ const Products = ({
   showProductModal,
   setShowProductModal,
   setShowSuggestions,
+  moreLikeThis,
+  setMoreLikeThis,
+  searchTerm,
 }) => {
   return (
     <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
@@ -22,6 +25,9 @@ const Products = ({
           source="Home"
           setDisplayedProduct={setDisplayedProduct}
           setShowSuggestions={setShowSuggestions}
+          moreLikeThis={moreLikeThis}
+          setMoreLikeThis={setMoreLikeThis}
+          searchTerm={searchTerm}
         />
       ))}
     </div>

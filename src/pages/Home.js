@@ -41,7 +41,7 @@ const Home = () => {
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
 
-  const getUsersEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/storecustomerdata-hatrb/endpoint/users?id=${currentCustID}`;
+  const getUsersEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/users?id=${currentCustID}`;
 
   const getProducts = async () => {
     let data = {
@@ -62,30 +62,24 @@ const Home = () => {
 
   const getCustomersInfo = () => {
     axios.get(getUsersEndpoint).then((response) => {
+      console.log("USER: ", response.data.customer);
+      console.log("USER: ", response.data.customer.email);
+      console.log("OTHERS: ", response.data.otherCustomers.length);
+
       setCustomer(response.data.customer);
       setCustomerRecentViews(response.data.customer.recentViews);
-      setOtherCustomers(response.data.otherUsers);
-    });
-  };
-  const getMoreLikeThis = (cat) => {
-    const SimilarProductsEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?searchTerm=${searchTerm}&cat=${cat}`;
-    console.log("SEARCHTERM: ", searchTerm);
-    console.log("CATEGORY FOR LIKE: ", cat);
-    axios.get(SimilarProductsEndpoint).then((response) => {
-      setMoreLikeThis(response.data);
-      console.log("NEW ENDPOINT: ", SimilarProductsEndpoint);
-      console.log("More Like This: ", response.data);
+      setOtherCustomers(response.data.otherCustomers);
     });
   };
 
   useEffect(() => {
     getCustomersInfo();
     setMoreLikeThis([]);
-    setProducts(promotedItems);
+    // setProducts(promotedItems);
     setMaxPages(1);
     setCurrentPage(1);
 
-    // setViewedProduct(false);
+    setViewedProduct(false);
 
     // eslint-disable-next-line
   }, [currentCustID]);
@@ -113,7 +107,7 @@ const Home = () => {
       cat = "Clothing";
     }
 
-    getMoreLikeThis(cat);
+    //    getMoreLikeThis(cat);
 
     // eslint-disable-next-line
   }, [showProductModal]);
@@ -173,6 +167,9 @@ const Home = () => {
                 customer={customer}
                 setViewedProduct={setViewedProduct}
                 setShowSuggestions={setShowSuggestions}
+                moreLikeThis={moreLikeThis}
+                setMoreLikeThis={setMoreLikeThis}
+                searchTerm={searchTerm}
               />
             ) : (
               <div className="mt-20 py-2 text-center text-black w-full text-6xl rounded-lg">
@@ -186,6 +183,7 @@ const Home = () => {
               displayedProduct={displayedProduct}
               setViewedProduct={setViewedProduct}
               customer={customer}
+              moreLikeThis={moreLikeThis}
             />
           )}
           {customerRecentViews.length !== 0 && (
@@ -199,7 +197,7 @@ const Home = () => {
               customer={customer}
             />
           )}
-          {moreLikeThis.length !== 0 && (
+          {/* {moreLikeThis.length !== 0 && (
             <Recommended
               recentProducts={moreLikeThis}
               showProductModal={showProductModal}
@@ -209,7 +207,7 @@ const Home = () => {
               setShowSuggestions={setShowSuggestions}
               customer={customer}
             />
-          )}
+          )} */}
           {maxPages > 1 && (
             <Pagination
               maxPages={maxPages}

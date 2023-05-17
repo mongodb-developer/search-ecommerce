@@ -74,26 +74,26 @@ const Header = ({
       console.error(error);
     }
   };
-  useEffect(() => {
-    if (initial.current) {
-      initial.current = false;
-      return;
-    }
-    // BUILD OUT AUTOCOMPLETE TERMS
-    if (searchTerm === "") setShowSuggestions(false);
-    if (searchTerm !== "" && searchTerm.length > 3) {
-      fetchAC_Names(searchTerm);
+  // useEffect(() => {
+  //   if (initial.current) {
+  //     initial.current = false;
+  //     return;
+  //   }
+  //   // BUILD OUT AUTOCOMPLETE TERMS
+  //   if (searchTerm === "") setShowSuggestions(false);
+  //   if (searchTerm !== "" && searchTerm.length > 3) {
+  //     fetchAC_Names(searchTerm);
 
-      if (autoComplete.length !== 0) {
-        setShowSuggestions(true);
-        return;
-      }
-      setShowSuggestions(false);
-    }
-    return;
+  //     if (autoComplete.length !== 0) {
+  //       setShowSuggestions(true);
+  //       return;
+  //     }
+  //     setShowSuggestions(false);
+  //   }
+  //   return;
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm]);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [searchTerm]);
 
   const handleSelectAutocomplete = (item) => {
     setSearchTerm(item.name);

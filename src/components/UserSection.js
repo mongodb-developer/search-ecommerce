@@ -31,7 +31,11 @@ const UserSection = ({
       </div>
       <div className="flex flex-col">
         {otherCustomers.map((other) => (
-          <UserCard key={other._id} user={other} setCurrentCustID ={setCurrentCustID}/>
+          <UserCard
+            key={other._id}
+            user={other}
+            setCurrentCustID={setCurrentCustID}
+          />
         ))}
       </div>
 
