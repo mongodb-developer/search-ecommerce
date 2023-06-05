@@ -12,7 +12,7 @@ const RecentlyViewed = ({
   const SixProducts = recentProducts.slice(0, 6);
 
   return (
-    <div className="shadow-2xl bg-gradient-to-r from-green-700 to-green-900 w-full rounded my-2 overflow-hidden">
+    <div className="shadow-2xl bg-gradient-to-r from-green-700 to-green-900 w-full rounded my-2 overflow-hidden mb-10">
       <div className="text-white text-2xl pl-4 pt-2">
         Recommended Just for You
       </div>
