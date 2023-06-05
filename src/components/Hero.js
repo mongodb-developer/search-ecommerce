@@ -20,10 +20,13 @@ const Hero = ({
       />
       <div className="bg-gray-900 bg-opacity-60 flex items-center h-full absolute w-full z-10">
         <div className="px-10 max-w-xl">
-          <h2 className="text-2xl text-white font-semibold">Tech Shirts</h2>
+          <h2 className="text-2xl text-white font-semibold">
+            Ready for summer?
+          </h2>
           <p className="mt-2 text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
-            atque recusandae ipsum odio possimus soluta!
+            Summer BBQ with friends? Trip to the beach with the kids? Order what
+            you need today and you'll get it tonight. Take advantage of our
+            speedy shipping services.
           </p>
           <div href={`/products`}>
             <button

@@ -13,7 +13,9 @@ const RecentlyViewed = ({
 
   return (
     <div className="shadow-2xl bg-gradient-to-r from-green-700 to-green-900 w-full rounded my-2 overflow-hidden">
-      <div className="text-white text-2xl pl-4 pt-2">Recently Viewed</div>
+      <div className="text-white text-2xl pl-4 pt-2">
+        Recommended Just for You
+      </div>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px-4 py-2">
         {SixProducts.map((product, idx) => (
           <Product

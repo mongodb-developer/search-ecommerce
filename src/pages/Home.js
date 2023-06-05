@@ -13,8 +13,11 @@ import axios from "axios";
 import RecentlyViewed from "../components/RecentlyViewed";
 import Recommended from "../components/Recommended";
 import UserSection from "../components/UserSection";
+import Login from "../components/Login";
 
 const Home = () => {
+  const [signedIn, setSignedIn] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [products, setProducts] = useState(promotedItems);
   const [market, setMarket] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -126,7 +129,19 @@ const Home = () => {
           showProductModal={showProductModal}
           setShowProductModal={setShowProductModal}
           customer={customer}
+          signedIn={signedIn}
+          setSignedIn={setSignedIn}
+          showLogin={showLogin}
+          setShowLogin={setShowLogin}
+          currentCustID={currentCustID}
         />
+        {showLogin && (
+          <Login
+            setShowLogin={setShowLogin}
+            setCurrentCustID={setCurrentCustID}
+            currentCustID={currentCustID}
+          />
+        )}
         {showUser && (
           <UserSection
             setShowUser={setShowUser}
@@ -143,6 +158,7 @@ const Home = () => {
             showSponsored={showSponsored}
             setShowSponsored={setShowSponsored}
           />
+
           <div className="flex flex-grow space-x-2">
             {showFilters && (
               <div className="mb-10">
@@ -186,7 +202,7 @@ const Home = () => {
               moreLikeThis={moreLikeThis}
             />
           )}
-          {customerRecentViews.length !== 0 && (
+          {currentCustID !== "63273ef32a32f09fe5d8654f" && (
             <RecentlyViewed
               recentProducts={customerRecentViews}
               showProductModal={showProductModal}

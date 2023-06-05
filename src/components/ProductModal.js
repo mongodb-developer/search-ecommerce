@@ -51,7 +51,7 @@ const ProductModal = ({
           className="mt-1 overflow-auto"
           dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
         ></div>
-        {moreLikeThis.length !== 0 && (
+        {/* {moreLikeThis.length !== 0 && (
           <Recommended
             recentProducts={moreLikeThis}
             showProductModal={showProductModal}
@@ -61,7 +61,7 @@ const ProductModal = ({
             setShowSuggestions={setShowSuggestions}
             customer={customer}
           />
-        )}
+        )} */}
 
         <ShoppingCartIcon
           className="h-8 w-8 p-1 absolute bottom-0 left-0 ml-3 mb-3 text-white bg-green-600 hover:bg-green-500 rounded-full"
