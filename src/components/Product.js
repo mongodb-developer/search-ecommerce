@@ -15,17 +15,21 @@ const Product = ({
   setMoreLikeThis,
   searchTerm,
 }) => {
+  let price = 0;
+  if (!product.price.value) {
+    price = product.price;
+  } else price = product.price.value;
   let cat = product.category;
   if (!cat) {
     cat = "Clothing";
   }
-  console.log("CAT", cat);
+
   const ID = product._id;
   const getMoreLikeThis = () => {
     const SimilarProductsEndpoint = `https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/mayAlsoLike?searchTerm=${searchTerm}&cat=${cat}&ID=${ID}`;
     console.log("IN MORE LIKE THIS FROM PROD MODAL");
     console.log("SEARCHTERM: ", searchTerm);
-    console.log("CATEGORY FOR LIKE: ", cat);
+
     axios.get(SimilarProductsEndpoint).then((response) => {
       setMoreLikeThis(response.data);
       console.log("NEW ENDPOINT: ", SimilarProductsEndpoint);
@@ -39,14 +43,14 @@ const Product = ({
         onClick={() => {
           setShowProductModal(!showProductModal);
           setShowSuggestions(false);
-          getMoreLikeThis();
+          // getMoreLikeThis();
           setDisplayedProduct({
             name: product.name,
             _id: product._id,
             category: product.category,
             image: product.main_image_url,
             description: product.main_description,
-            price: product.price.value,
+            price: product.price,
             highlights: product.highlights,
           });
         }}
@@ -85,7 +89,7 @@ const Product = ({
               CATEGORY: {product?.category}
             </h3>
           )}
-          <span className="text-gray-500 mt-2">${product?.price?.value}</span>
+          <span className="text-gray-500 mt-2">${price}</span>
           <h3 className="text-red-500 mt-2">{product?.marketplace}</h3>
         </div>
       </div>

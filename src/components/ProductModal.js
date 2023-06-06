@@ -1,8 +1,7 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
-import DataFlow from "../images/MongoStoreGif.gif";
 
-import Recommended from "../components/Recommended";
+import Recommended from "./Recommended2";
 
 const ProductModal = ({
   setShowProductModal,
@@ -14,6 +13,11 @@ const ProductModal = ({
   setShowSuggestions,
   moreLikeThis,
 }) => {
+  console.log("DISPLAYED PROD: ", displayedProduct);
+  let price = 0;
+  if (!displayedProduct.price.value) {
+    price = displayedProduct.price;
+  } else price = displayedProduct.price.value;
   console.log("HIGHLIGHTS: ", displayedProduct.highlights);
   const descriptionWithHighlights = buildHighlightString(
     displayedProduct?.highlights
@@ -21,29 +25,26 @@ const ProductModal = ({
 
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
-      <div className="relative flex flex-col w-3/4 h-3/4 bg-white border-2 border-black rounded mt-30 p-8">
+      <div className="relative flex flex-col w-1/2 h-1/2 bg-white border-2 border-black rounded mt-30 p-8">
         <div className="flex">
           <div className="w-1/2 px-10 text-center">
             <div className="text-gray-900 text-sm uppercase ">
               {displayedProduct.name}
             </div>
-            <div className="text-gray-500 mt-2">${displayedProduct.price}</div>
+
             <div className="w-full max-w-sm mx-auto rounded-lg shadow-md">
-              <div className="flex flex-col w-full h-36 bg-cover">
+              <div className="flex flex-col w-full h-64 bg-cover my-8">
                 <img
                   src={displayedProduct.image}
                   alt={displayedProduct.name}
-                  className="object-scale-down h-36 w-full"
+                  className="object-scale-down h-48 w-full my-auto"
                 />
               </div>
             </div>
+            <div className="text-gray-500 mt-2">${price}</div>
           </div>
-          <div className="w-1/2">
-            <img
-              className="w-96 h-auto p-1 bg-slate-600 rounded-lg mx-auto"
-              src={DataFlow}
-              alt="architecture"
-            />
+          <div className="w-1/2 px-10 text-center">
+            {displayedProduct?.description}
           </div>
         </div>
 

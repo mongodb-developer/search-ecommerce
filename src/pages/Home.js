@@ -11,7 +11,7 @@ import Radio from "../components/Radio";
 import CheckBox from "../components/Checkbox";
 import axios from "axios";
 import RecentlyViewed from "../components/RecentlyViewed";
-import Recommended from "../components/Recommended";
+import Recommended from "../components/Recommended2";
 import UserSection from "../components/UserSection";
 import Login from "../components/Login";
 
@@ -215,17 +215,6 @@ const Home = () => {
             />
           )}
 
-          {/* {moreLikeThis.length !== 0 && (
-            <Recommended
-              recentProducts={moreLikeThis}
-              showProductModal={showProductModal}
-              setShowProductModal={setShowProductModal}
-              setDisplayedProduct={setDisplayedProduct}
-              setViewedProduct={setViewedProduct}
-              setShowSuggestions={setShowSuggestions}
-              customer={customer}
-            />
-          )} */}
           {maxPages > 1 && (
             <Pagination
               maxPages={maxPages}
