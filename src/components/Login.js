@@ -2,32 +2,42 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
-  const { register, handleSubmit, errors } = useForm();
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
-  // This function will be called whenever the user edits the form.
-  const onFormInputChange = (event) => {
-    const { name, value } = event.target;
-    setForm({ ...form, [name]: value });
-  };
+  const { register, handleSubmit } = useForm();
 
-  const onSubmit = async (data) => {
-    console.log("SUBMITTED");
-
-    try {
-      // Here we are passing user details to our emailPasswordLogin
-      // function that we imported from our realm/authentication.js
-      // to validate the user credentials and login the user into our App.
-      console.log("EMAIL", data.email);
-      console.log("PASSWORD", data.password);
-
+  const onSubmit = (data) => {
+    console.log(data.email);
+    if (data.email.toLowerCase() === "amaleal@mayoclinic.com")
       setCurrentCustID("63229e0ae634e04e58252a74");
-    } catch (error) {
-      alert(error);
-    }
+    if (data.email.toLowerCase() === "scott@streammeup.com")
+      setCurrentCustID("63229e0ae634e04e58252a71");
+    setShowLogin(false);
   };
+
+  //     email: "",
+  //     password: "",
+  //   });
+  // This function will be called whenever the user edits the form.
+  //   const onFormInputChange = (event) => {
+  //     console.log("Change");
+  //     const { name, value } = event.target;
+  //     setForm({ ...form, [name]: value });
+  //   };
+
+  //   const onSubmit = async (data) => {
+  //     console.log("SUBMITTED");
+
+  //     try {
+  //       // Here we are passing user details to our emailPasswordLogin
+  //       // function that we imported from our realm/authentication.js
+  //       // to validate the user credentials and login the user into our App.
+  //       console.log("EMAIL", data.email);
+  //       console.log("PASSWORD", data.password);
+
+  //       setCurrentCustID("63229e0ae634e04e58252a74");
+  //     } catch (error) {
+  //       alert(error);
+  //     }
+  //   };
 
   return (
     <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
@@ -41,13 +51,7 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
           onSubmit={handleSubmit(onSubmit)}
           autoComplete="off"
         >
-          <div class="flex items-center mb-5">
-            {/* <label
-              for="email"
-              className="inline-block text-right mr-6 w-20 font-bold text-black"
-            >
-              Email
-            </label> */}
+          <div className="flex items-center mb-5">
             <input
               type="text"
               name="email"
@@ -59,12 +63,6 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
           </div>
 
           <div class="flex items-center mb-10">
-            {/* <label
-              for="password"
-              className="inline-block text-right mr-6 w-20 font-bold"
-            >
-              Password
-            </label> */}
             <input
               type="password"
               name="password"
@@ -78,17 +76,9 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
             <button
               type="submit"
               className="py-3 px-8 bg-green-500 text-white font-bold rounded w-full"
-              onClick={() => {
-                setCurrentCustID("63229e0ae634e04e58252a74");
-                console.log(currentCustID);
-                setShowLogin(false);
-              }}
             >
               Log In
             </button>
-            {/* <p className="mt-8">
-              Need an account? <Link to="/signup">Sign Up!</Link>
-            </p> */}
           </div>
         </form>
       </div>

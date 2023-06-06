@@ -17,6 +17,7 @@ const Header = ({
   showLogin,
   setShowLogin,
   currentCustID,
+  setCurrentCustID,
 }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [autoComplete, setAutoComplete] = useState([]);
@@ -163,7 +164,9 @@ const Header = ({
               <button
                 className="text-gray-600 focus:outline-none mx-4 sm:mx-0 flex"
                 onClick={() => {
-                  setShowLogin(true);
+                  if (currentCustID !== "63273ef32a32f09fe5d8654f")
+                    setCurrentCustID("63273ef32a32f09fe5d8654f");
+                  else setShowLogin(true);
                 }}
               >
                 {currentCustID !== "63273ef32a32f09fe5d8654f"

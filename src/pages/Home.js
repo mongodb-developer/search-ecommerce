@@ -134,6 +134,7 @@ const Home = () => {
           showLogin={showLogin}
           setShowLogin={setShowLogin}
           currentCustID={currentCustID}
+          setCurrentCustID={setCurrentCustID}
         />
         {showLogin && (
           <Login
@@ -158,6 +159,17 @@ const Home = () => {
             showSponsored={showSponsored}
             setShowSponsored={setShowSponsored}
           />
+          {currentCustID !== "63273ef32a32f09fe5d8654f" && (
+            <RecentlyViewed
+              recentProducts={customerRecentViews}
+              showProductModal={showProductModal}
+              setShowProductModal={setShowProductModal}
+              setDisplayedProduct={setDisplayedProduct}
+              setViewedProduct={setViewedProduct}
+              setShowSuggestions={setShowSuggestions}
+              customer={customer}
+            />
+          )}
 
           <div className="flex flex-grow space-x-2">
             {showFilters && (
@@ -202,17 +214,7 @@ const Home = () => {
               moreLikeThis={moreLikeThis}
             />
           )}
-          {currentCustID !== "63273ef32a32f09fe5d8654f" && (
-            <RecentlyViewed
-              recentProducts={customerRecentViews}
-              showProductModal={showProductModal}
-              setShowProductModal={setShowProductModal}
-              setDisplayedProduct={setDisplayedProduct}
-              setViewedProduct={setViewedProduct}
-              setShowSuggestions={setShowSuggestions}
-              customer={customer}
-            />
-          )}
+
           {/* {moreLikeThis.length !== 0 && (
             <Recommended
               recentProducts={moreLikeThis}
