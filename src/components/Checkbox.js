@@ -56,6 +56,9 @@ const members = [
     name: "Computers & Accessories",
   },
   {
+    name: "Cosmetics",
+  },
+  {
     name: "Furniture",
   },
   {

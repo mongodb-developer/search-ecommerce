@@ -14,6 +14,7 @@ import RecentlyViewed from "../components/RecentlyViewed";
 import Recommended from "../components/Recommended2";
 import UserSection from "../components/UserSection";
 import Login from "../components/Login";
+import Cart from "../components/Cart";
 
 const Home = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -27,6 +28,7 @@ const Home = () => {
   const [showResults, setShowResults] = useState(true);
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
+  const [showCart, setShowCart] = useState(false);
   const [showProductModal, setShowProductModal] = useState(false);
   const [displayedProduct, setDisplayedProduct] = useState({});
   const [customer, setCustomer] = useState({});
@@ -135,6 +137,8 @@ const Home = () => {
           setShowLogin={setShowLogin}
           currentCustID={currentCustID}
           setCurrentCustID={setCurrentCustID}
+          showCart={showCart}
+          setShowCart={setShowCart}
         />
         {showLogin && (
           <Login
@@ -152,6 +156,7 @@ const Home = () => {
             setCurrentCustID={setCurrentCustID}
           />
         )}
+        {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
         <Container className="flex-grow">
           <Hero
             showFilters={showFilters}
@@ -178,12 +183,12 @@ const Home = () => {
                   categories={categories}
                   setCategories={setCategories}
                 />
-                <Radio
+                {/* <Radio
                   options={markets}
                   option={market}
                   setOption={setMarket}
                   title="Marketplace"
-                />
+                /> */}
               </div>
             )}
             {showResults ? (
