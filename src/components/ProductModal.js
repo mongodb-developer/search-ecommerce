@@ -1,8 +1,6 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/outline";
 
-import Recommended from "./Recommended2";
-
 const ProductModal = ({
   setShowProductModal,
   showProductModal,

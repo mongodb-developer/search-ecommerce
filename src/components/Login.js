@@ -6,7 +6,7 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
 
   const onSubmit = (data) => {
     console.log(data.email);
-    if (data.email.toLowerCase() === "amaleal@mayoclinic.com")
+    if (data.email.toLowerCase() === "amaleal@gmail.com")
       setCurrentCustID("63229e0ae634e04e58252a74");
     if (data.email.toLowerCase() === "scott@streammeup.com")
       setCurrentCustID("63229e0ae634e04e58252a71");
@@ -62,7 +62,7 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
             />
           </div>
 
-          <div class="flex items-center mb-10">
+          <div className="flex items-center mb-10">
             <input
               type="password"
               name="password"

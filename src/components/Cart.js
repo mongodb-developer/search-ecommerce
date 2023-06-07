@@ -1,20 +1,93 @@
 import React from "react";
+import OutStock from "../images/OutStock.png";
 
-const Cart = ({ setShowCart }) => {
+const Cart = ({ cartItems, setShowCart }) => {
+  let TotalPrice = -30;
+
+  for (let i = 0; i < cartItems?.length; i++) {
+    TotalPrice = TotalPrice + cartItems[i].price;
+  }
+
   return (
-    <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
-      CART
-      <div className="bg-white py-8  mx-auto rounded px-8">
-        <button
-          type="button"
-          className="py-3 px-8 bg-green-500 text-white font-bold rounded w-full mt-8"
-          onClick={() => {
-            setShowCart(false);
-          }}
+    <div className=" text-xl text-white bg-gradient-to-t bg-slate-800 p-8 z-20 rounded-lg">
+      <div className="flex mx-auto space-x-8 w-full">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1}
+          stroke="currentColor"
+          className="w-16 h-16 mb-4 mx-auto"
         >
-          PURCHASE
-        </button>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+          />
+        </svg>
       </div>
+
+      <div className="bg-white py-8  mx-auto rounded px-8 text-black text-sm text-center">
+        {cartItems?.map((item, idx) => (
+          <div className="relative" key={idx}>
+            <div className="mt-4  text-indigo-900">{item.name}</div>
+            <img
+              src={item.main_image_url}
+              alt={item.name}
+              className="object-scale-down h-32 w-32 "
+            />
+            <div className="text-gray-500 mt-2">${item.price}</div>
+            <div className=" flex rounded-full w-20 p-2 border border-slate-800 mb-4 space-x-4 text-center items-center absolute bottom-0 right-0">
+              <div className="pl-2">1</div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9"
+                />
+              </svg>
+            </div>
+            {item.name === "Jo Malone London English Pear & Freesia Soap" && (
+              <img
+                src={OutStock}
+                alt="empty"
+                className="absolute object-contain w-64 top-16 rounded-lg my-auto mx-auto -skew-y-12"
+              />
+            )}
+            {item.name === "Petzl Swift RL Headlamp" && (
+              <img
+                src={OutStock}
+                alt="empty"
+                className="absolute object-contain w-64 top-16 rounded-lg my-auto mx-auto -skew-y-12"
+              />
+            )}
+
+            <hr></hr>
+          </div>
+        ))}
+      </div>
+      <div className="bg-slate-800 text-white w-full py-2 text-center ">
+        ORDER SUMMARY
+      </div>
+      <div className="bg-slate-800 text-white w-full py-2 text-center ">
+        ${TotalPrice}
+      </div>
+      <button
+        type="button"
+        className="py-3 px-8 bg-green-700 text-white font-bold rounded-full w-full mt-8"
+        onClick={() => {
+          setShowCart(false);
+        }}
+      >
+        BUY NOW
+      </button>
       <div
         className="absolute bottom-2 right-2"
         onClick={() => {

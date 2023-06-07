@@ -11,10 +11,11 @@ import Radio from "../components/Radio";
 import CheckBox from "../components/Checkbox";
 import axios from "axios";
 import RecentlyViewed from "../components/RecentlyViewed";
-import Recommended from "../components/Recommended2";
+
 import UserSection from "../components/UserSection";
 import Login from "../components/Login";
 import Cart from "../components/Cart";
+import Replacements from "../components/Replacements";
 
 const Home = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -29,6 +30,7 @@ const Home = () => {
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
   const [showCart, setShowCart] = useState(false);
+  const [showReplacements, setShowReplacements] = useState(true);
   const [showProductModal, setShowProductModal] = useState(false);
   const [displayedProduct, setDisplayedProduct] = useState({});
   const [customer, setCustomer] = useState({});
@@ -37,6 +39,7 @@ const Home = () => {
   const [currentCustID, setCurrentCustID] = useState(
     "63273ef32a32f09fe5d8654f"
   );
+  const [cartItems, setCartItems] = useState([]);
   const [customerRecentViews, setCustomerRecentViews] = useState([]);
   const [moreLikeThis, setMoreLikeThis] = useState(recentProducts);
   const [viewedProduct, setViewedProduct] = useState(false);
@@ -70,10 +73,12 @@ const Home = () => {
       console.log("USER: ", response.data.customer);
       console.log("USER: ", response.data.customer.email);
       console.log("OTHERS: ", response.data.otherCustomers.length);
+      setCartItems(response.data.customer.cart);
 
       setCustomer(response.data.customer);
       setCustomerRecentViews(response.data.customer.recentViews);
       setOtherCustomers(response.data.otherCustomers);
+      console.log("CART", cartItems);
     });
   };
 
@@ -139,6 +144,7 @@ const Home = () => {
           setCurrentCustID={setCurrentCustID}
           showCart={showCart}
           setShowCart={setShowCart}
+          setShowReplacements={setShowReplacements}
         />
         {showLogin && (
           <Login
@@ -156,7 +162,21 @@ const Home = () => {
             setCurrentCustID={setCurrentCustID}
           />
         )}
-        {showCart && <Cart showCart={showCart} setShowCart={setShowCart} />}
+        {showCart && (
+          <div className="flex absolute top-20 right-8">
+            {showReplacements && (
+              <Replacements
+                setShowReplacements={setShowReplacements}
+                currentCustID={currentCustID}
+              />
+            )}
+            <Cart
+              showCart={showCart}
+              setShowCart={setShowCart}
+              cartItems={cartItems}
+            />
+          </div>
+        )}
         <Container className="flex-grow">
           <Hero
             showFilters={showFilters}
