@@ -9,7 +9,7 @@ const UserSection = ({
   setCurrentCustID,
 }) => {
   return (
-    <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
+    <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-red-900 to-red-800 p-8 z-40 rounded-lg w-1/3">
       <CurrentUser customer={customer} />
       <div
         className="absolute bottom-2 right-2"
