@@ -16,6 +16,7 @@ import UserSection from "../components/UserSection";
 import Login from "../components/Login";
 import Cart from "../components/Cart";
 import Replacements from "../components/Replacements";
+import ChatSection from "../components/ChatSection";
 
 const Home = () => {
   const [signedIn, setSignedIn] = useState(false);
@@ -247,8 +248,12 @@ const Home = () => {
               currentPage={currentPage}
             />
           )}
+          <div className="absolute right-28 bottom-20">
+            <ChatSection />
+          </div>
         </Container>
-        <div className="mt-8 absolute inset-x-0 bottom-0">
+
+        <div className=" mt-8 absolute inset-x-0 bottom-0">
           <Footer />
         </div>
       </div>
