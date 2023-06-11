@@ -6,9 +6,10 @@ const Replacements = ({ setShowReplacements, currentCustID }) => {
     suggestions = suggestionsAmalea;
   } else suggestions = suggestionsScott;
   return (
-    <div className="relative bg-white text-xl  bg-gradient-to-t border-slate-800 border-8 p-2 z-20 rounded-lg mt-20">
+    <div className="relative bg-white text-xl  bg-gradient-to-t border-slate-800 border-8 p-2 z-20 rounded-lg mt-20 w-64">
       <div className=" text-lg text-red-800 text-center pt-4">
-        You'll also love
+        Aww. 😞 Your item has just gone out of stock. We recommend the following
+        as replacements:
       </div>
       <div className=" py-8  mx-auto rounded text-black text-sm text-center">
         {suggestions.map((item) => (

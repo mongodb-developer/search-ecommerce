@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import OutStock from "../images/OutStock.png";
 
-const Cart = ({ cartItems, setShowCart }) => {
-  let TotalPrice = -30;
+const Cart = ({
+  cartItems,
+  setShowCart,
+  currentCustID,
+  setShowReplacements,
+}) => {
+  let TotalPrice = 0;
 
   for (let i = 0; i < cartItems?.length; i++) {
     TotalPrice = TotalPrice + cartItems[i].price;
   }
+
+  const [showOutStock, setShowOutStock] = useState(false);
+
+  function lostCart() {
+    setShowOutStock(true);
+    TotalPrice = TotalPrice - 30;
+  }
+
+  function showReplacementSuggestions() {
+    setShowReplacements(true);
+  }
+
+  setTimeout(lostCart, 3000);
+  setTimeout(showReplacementSuggestions, 5000);
 
   return (
     <div className=" text-xl text-white bg-gradient-to-t bg-slate-800 p-8 z-20 rounded-lg">
@@ -54,18 +73,12 @@ const Cart = ({ cartItems, setShowCart }) => {
                 />
               </svg>
             </div>
-            {item.name === "Jo Malone London English Pear & Freesia Soap" && (
+
+            {showOutStock && item.name === "Petzl Swift RL Headlamp" && (
               <img
                 src={OutStock}
                 alt="empty"
-                className="absolute object-contain w-64 top-16 rounded-lg my-auto mx-auto -skew-y-12"
-              />
-            )}
-            {item.name === "Petzl Swift RL Headlamp" && (
-              <img
-                src={OutStock}
-                alt="empty"
-                className="absolute object-contain w-64 top-16 rounded-lg my-auto mx-auto -skew-y-12"
+                className="absolute  w-96 top-16 rounded-lg my-auto mx-auto -skew-y-12 "
               />
             )}
 

@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { Configuration } from "openai";
-import Container from "./Container";
 
 const PARAMS = {
   temperature: 0,
   max_tokens: 256,
 };
-
+// sk - i02cpaG8AkOlchBKHnjET3BlbkFJXChtBiKTzsr1SFtDW5Dc;
 const configuration = new Configuration({
-  apiKey: process.env.REACT_APP_OPENAI_KEY,
+  apiKey: "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",
+  // apiKey: process.env.REACT_APP_OPENAI_KEY,
 });
 
 const Chatbot = () => {
   const [chatResponse, setChatResponse] = useState("");
   const [userInput, setUserInput] = useState("");
   const [userStatement, setUserStatement] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleSendData = async (e) => {
     e.preventDefault();

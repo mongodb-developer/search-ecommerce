@@ -31,7 +31,7 @@ const Home = () => {
   const [showSponsored, setShowSponsored] = useState(false);
   const [showFilters, setShowFilters] = useState(true);
   const [showCart, setShowCart] = useState(false);
-  const [showReplacements, setShowReplacements] = useState(true);
+  const [showReplacements, setShowReplacements] = useState(false);
   const [showProductModal, setShowProductModal] = useState(false);
   const [displayedProduct, setDisplayedProduct] = useState({});
   const [customer, setCustomer] = useState({});
@@ -175,6 +175,8 @@ const Home = () => {
               showCart={showCart}
               setShowCart={setShowCart}
               cartItems={cartItems}
+              currentCustID={currentCustID}
+              setShowReplacements={setShowReplacements}
             />
           </div>
         )}
