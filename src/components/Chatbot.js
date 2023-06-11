@@ -45,15 +45,20 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="w-96 h-96 ">
+    <div className="w-96 mb-20 ">
       {userStatement !== "" && (
-        <div className=" mt-4 rounded-2xl py-2 px-4 border bg-indigo-600 text-white text-right">
-          {userStatement}
+        <div className="w-full flex">
+          <div className="w-1/3"> </div>
+          <div className=" w-2/3 mt-4 rounded-lg py-2 px-4 border bg-green-500 text-white text-right">
+            {userStatement}
+          </div>
         </div>
       )}
       {chatResponse !== "" && (
-        <div className="  mt-4 rounded-2xl py-2 px-4 border bg-red-600 text-white">
-          {chatResponse}
+        <div className="w-full flex">
+          <div className=" mt-4 rounded-lg py-2 px-4 border bg-red-600 text-white">
+            {chatResponse}
+          </div>
         </div>
       )}
       <form onSubmit={handleSendData}>

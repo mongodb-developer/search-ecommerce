@@ -21,7 +21,7 @@ const Cart = ({
   }
 
   function showReplacementSuggestions() {
-    setShowReplacements(true);
+    if (currentCustID === "63229e0ae634e04e58252a71") setShowReplacements(true);
   }
 
   setTimeout(lostCart, 3000);

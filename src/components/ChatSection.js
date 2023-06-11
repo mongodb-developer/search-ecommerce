@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import AskUsAnything from "../images/AskUsAnything.png";
+import AskAnything from "../images/AskAnything.png";
+import ChatBar from "../images/ChatBar.png";
 import { Collapse } from "react-collapse";
 import Chatbot from "./Chatbot";
 
@@ -11,46 +12,40 @@ const ChatSection = () => {
   return (
     <div className=" flex flex-col w-96 object-right z-auto">
       <div className="relative flex justify-center">
-        <div onClick={() => toggleChat(showChat)}>
+        <div>
           <img
-            src={AskUsAnything}
+            src={AskAnything}
             alt="ChatInvite"
-            className="object-contain w-96 top-16 rounded-md my-auto mx-auto cursor-pointer hover:shadow-2xl"
+            className="bg-white object-contain w-96 top-16 rounded-md my-auto mx-auto cursor-pointer"
           />
-
-          <div className="absolute bottom-4 right-4 text-3xl text-black cursor-pointer transition-transform duration-500">
-            {showChat ? (
+          {showChat ? (
+            <div
+              className="absolute bottom-0 right-4 text-3xl text-black cursor-pointer transition-transform duration-500"
+              onClick={() => toggleChat(showChat)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
-                stroke="black"
+                stroke="currentColor"
                 class="w-6 h-6"
               >
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="black"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            )}
-          </div>
+            </div>
+          ) : (
+            <img
+              src={ChatBar}
+              alt="ChatIcon"
+              onClick={() => toggleChat(showChat)}
+              className=" object-contain w-96 top-16 rounded-md my-auto mx-auto transition-transform duration-500 cursor-pointer hover:shadow-2xl hover:scale-110"
+            />
+          )}
         </div>
       </div>
       <Collapse isOpened={showChat}>
