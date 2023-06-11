@@ -5,10 +5,8 @@ const PARAMS = {
   temperature: 0,
   max_tokens: 256,
 };
-// sk - i02cpaG8AkOlchBKHnjET3BlbkFJXChtBiKTzsr1SFtDW5Dc;
 const configuration = new Configuration({
-  apiKey: "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",
-  // apiKey: process.env.REACT_APP_OPENAI_KEY,
+  apiKey: process.env.REACT_APP_OPENAI_KEY,
 });
 
 const Chatbot = () => {
