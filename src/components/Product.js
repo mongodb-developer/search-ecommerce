@@ -90,7 +90,7 @@ const Product = ({
             </h3>
           )}
           <span className="text-gray-500 mt-2">${price}</span>
-          <h3 className="text-red-500 mt-2">{product?.marketplace}</h3>
+          {/* <h3 className="text-red-500 mt-2">{product?.marketplace}</h3> */}
         </div>
       </div>
     </div>

@@ -6,14 +6,14 @@ import { Collapse } from "react-collapse";
 import Chatbot from "./Chatbot";
 
 const ChatSection = () => {
-  const [showChat, setShowChat] = useState(true);
+  const [showChat, setShowChat] = useState(false);
   const toggleChat = (showChat) => {
     setShowChat(!showChat);
   };
   return (
-    <div className=" flex flex-col w-96 object-right z-auto">
+    <div className=" flex flex-col w-full object-right z-auto ">
       <div className="relative flex justify-center">
-        <div>
+        <div className="ml-auto">
           <img
             src={AskAnything}
             alt="ChatInvite"

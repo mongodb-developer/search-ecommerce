@@ -198,7 +198,6 @@ const Home = () => {
               customer={customer}
             />
           )}
-
           <div className="flex flex-grow space-x-2">
             {showFilters && (
               <div className="mb-10">
@@ -242,7 +241,6 @@ const Home = () => {
               moreLikeThis={moreLikeThis}
             />
           )}
-
           {maxPages > 1 && (
             <Pagination
               maxPages={maxPages}
@@ -250,7 +248,8 @@ const Home = () => {
               currentPage={currentPage}
             />
           )}
-          <div className="absolute right-28 bottom-20">
+          fixed inset-x-0 bottom-0"
+          <div className="fixed inset-x-0 bottom-10 ml-auto w-1/3 z-50">
             <ChatSection />
           </div>
         </Container>
@@ -477,3 +476,5 @@ const recentProducts = [
     },
   },
 ];
+
+//absolute right-4 bottom-20 w-1/3 z-50
