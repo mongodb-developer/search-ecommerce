@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AskAnything from "../images/AskAnything.png";
 import ChatBar from "../images/ChatBar.png";
+import ChatIcon from "../images/ChatIcon.png";
 import { Collapse } from "react-collapse";
 import Chatbot from "./Chatbot";
 
@@ -40,10 +41,10 @@ const ChatSection = () => {
             </div>
           ) : (
             <img
-              src={ChatBar}
+              src={ChatIcon}
               alt="ChatIcon"
               onClick={() => toggleChat(showChat)}
-              className=" object-contain w-96 top-16 rounded-md my-auto mx-auto transition-transform duration-500 cursor-pointer hover:shadow-2xl hover:scale-110"
+              className=" object-contain w-96 top-16 rounded-md my-auto mx-auto transition-transform duration-500 cursor-pointer hover:scale-110"
             />
           )}
         </div>
