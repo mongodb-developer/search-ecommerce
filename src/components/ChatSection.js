@@ -11,7 +11,7 @@ const ChatSection = ({ showChat, setShowChat }) => {
     setShowChat(!showChat);
   };
 
-  const [showChatProducts, setShowChatProducts] = useState(true);
+  const [showChatProducts, setShowChatProducts] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
 
   return (
@@ -62,7 +62,10 @@ const ChatSection = ({ showChat, setShowChat }) => {
         {showChat && (
           <div
             className="absolute bottom-0 right-1 text-3xl text-black cursor-pointer transition-transform duration-500"
-            onClick={() => toggleChat(showChat)}
+            onClick={() => {
+              toggleChat(showChat);
+              setShowChatProducts(false);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
