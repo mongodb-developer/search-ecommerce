@@ -14,6 +14,7 @@ const Product = ({
   moreLikeThis,
   setMoreLikeThis,
   searchTerm,
+  showChat,
 }) => {
   let price = 0;
   if (!product.price.value) {
@@ -72,13 +73,13 @@ const Product = ({
             alt={product?.name}
             className={
               source === "Home"
-                ? "object-scale-down h-36 w-full"
-                : "object-scale-down h-28 w-full"
+                ? "object-scale-down h-36 w-full rounded "
+                : "object-scale-down h-28 w-full rounded-lg"
             }
           />
 
           <button className="absolute z-0 p-2 rounded-full bg-green-600 text-white mx-5 -mb-4 hover:bg-green-500 focus:outline-none focus:bg-green-500">
-            <ShoppingCartIcon className="w-5 h-5" />
+            <ShoppingCartIcon className="w-5 h-5 " />
           </button>
         </div>
 
@@ -90,7 +91,6 @@ const Product = ({
             </h3>
           )}
           <span className="text-gray-500 mt-2">${price}</span>
-          {/* <h3 className="text-red-500 mt-2">{product?.marketplace}</h3> */}
         </div>
       </div>
     </div>
@@ -98,30 +98,3 @@ const Product = ({
 };
 
 export default Product;
-
-// const VIEW_PAGE_EVENT_ENDPOINT =
-//   "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/viewProduct";
-// const viewProductEvent = async () => {
-//   console.log("CALLING VIEWPRODUCT ENDPOINT FUNCTION");
-
-//   const time = new Date();
-//   const timestamp = time.toISOString();
-
-//   const data = {
-//     customerID: customer._id,
-//     productID: product._id,
-//     category: product.category,
-//     timestamp: timestamp,
-//     name: product.name,
-//     price: product.price.value,
-//     main_image_url: product.main_image_url,
-//   };
-
-//   console.log("DATA SENT: ", data);
-
-//   try {
-//     axios.post(VIEW_PAGE_EVENT_ENDPOINT, data).then((res) => {});
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };

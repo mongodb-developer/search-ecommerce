@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Configuration } from "openai";
-import Typewriter from "typewriter-effect";
+
+import Loading from "../images/Loading.gif";
+import PeekingDuck from "../images/PeekingDuck.png";
 
 const PARAMS = {
   temperature: 0,
@@ -18,40 +20,54 @@ const Question = ({ text }) => {
   );
 };
 
-const Response = ({ text }) => {
+const Response = ({ textArray }) => {
   return (
-    <div className=" mt-4 rounded-lg py-2 px-4 border bg-red-600 text-white">
-      {text}
+    <div className="bg-red-600 py-2 px-4 rounded-lg mt-4 text-white text-lg">
+      {textArray.map((text) => (
+        <div className="my-4">{text}</div>
+      ))}
     </div>
   );
 };
 
-const Chatbot = () => {
+const Chatbot = ({
+  showChat,
+  setShowChat,
+  setShowChatProducts,
+  setSuggestions,
+}) => {
   const [userInput, setUserInput] = useState("");
   const [questionList, setQuestionList] = useState([]);
   const [responseList, setResponseList] = useState([]);
-  const [index, setIndex] = useState(0);
 
   const updateResponseList = (idx) => {
     if (messageExchange[idx]) {
       let answer = messageExchange[idx]["answer"];
 
-      console.log("ANSWERING");
-      console.log(answer);
       setResponseList((responseList) => [...responseList, answer]);
     }
-    console.log("RESPONSES: ", responseList);
   };
 
-  // Set Time out
   useEffect(() => {
-    console.log("UPDATING RESPONSE: ", questionList.length - 1);
     let marker = questionList.length - 1;
-    updateResponseList(marker);
-    return;
+    const timeout = setTimeout(() => {
+      updateResponseList(marker);
+    }, 6000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
 
     // eslint-disable-next-line
   }, [questionList]);
+
+  useEffect(() => {
+    if (showChat) return;
+    setQuestionList([]);
+    setResponseList([]);
+
+    // eslint-disable-next-line
+  }, [showChat]);
 
   const handleStartChat = async (e) => {
     e.preventDefault();
@@ -59,21 +75,42 @@ const Chatbot = () => {
 
     setQuestionList((questionList) => [...questionList, userInput]);
 
-    console.log("QUESTIONS", questionList);
-    // setIndex(index + 1);
-    console.log("INDEX", index);
-
     setUserInput("");
   };
+  //  <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
 
+  // "w-full mb-4 max-h-128 "
   return (
-    <div className="w-full mb-4 max-h-128 ">
+    <div className="w-full mb-4 max-h-128 flex flex-col overflow-scroll ">
       {questionList.length > 0 &&
         questionList.map((question, idx) => (
-          <>
+          <div key={idx}>
             <Question text={question} />
-            {responseList[idx] && <Response text={responseList[idx]} />}
-          </>
+            {responseList[idx] ? (
+              <>
+                <Response textArray={responseList[idx]} />
+                <img
+                  src={PeekingDuck}
+                  alt="box"
+                  className="w-36 object-scale-down bg-yellow-300 rounded-lg my-4 mx-auto p-1 hover:scale-110 hover:bg-yellow-400 transition-transform duration-150"
+                  onClick={() => {
+                    setSuggestions(messageExchange[idx]["productSuggestions"]);
+                    setShowChatProducts(true);
+                    console.log(
+                      "SUGGESTIONS: ",
+                      messageExchange[idx]["productSuggestions"]
+                    );
+                  }}
+                />
+              </>
+            ) : (
+              <img
+                src={Loading}
+                alt="loading"
+                className="object-scale-down h-32 w-full my-auto"
+              />
+            )}
+          </div>
         ))}
 
       <form onSubmit={handleStartChat}>
@@ -93,33 +130,45 @@ const messageExchange = [
   {
     index: 0,
     question: "What should I wear hiking if it's really hot?",
-    answer: `Great question! If it's hot outside, you'll want to wear lightweight 
-  and breathable clothing that will help keep you cool and comfortable on your hike. 
-  Some good options might include shorts, sportswear t-shirts, or tank tops, and 
-  moisture-wicking socks. You'll also want to wear comfortable and supportive hiking s
+    answer: [
+      `Great question! If it's hot outside, you'll want to wear lightweight 
+  and breathable clothing that will help keep you cool and comfortable on your hike.`,
+      `Some good options might include shorts, sportswear t-shirts, or tank tops, and 
+  moisture-wicking socks. You'll also want comfortable and supportive hiking s
   hoes or boots to protect your feet on rough terrain. Be sure to bring a hat and sunglasses 
-  to protect your face and eyes from the sun, and don't forget to apply sunscreen before you hit the trail!
+  to protect your face and eyes from the sun, and don't forget to apply sunscreen before you hit the trail!`,
 
-Here is a list of some practical in-stock items you can check out:
+      `Here is a list of some practical in-stock items you can check out:
 `,
+    ],
     productSuggestions: [],
   },
   {
     index: 1,
     question: `It might be raining too`,
-    answer: `If it's both hot and rainy, it can be a little tricky. You'll want to 
-  make sure that you are covered up enough to stay warm and dry in case it starts to rain, but that your clothes are 
-  also breathable enough to allow sweat to escape so you don't overheat.
+    answer: [
+      `Both hot and rainy can be a little tricky. You'll want to 
+  make sure that you are covered up and dry in case it starts to rain, but that your clothes are 
+  also breathable enough to allow sweat to escape so you don't overheat:`,
 
-  A good option is to wear lightweight, quick-drying fabrics such as polyester or nylon:/n 
-  A rain jacket or poncho will help keep you dry.
-   a hat with a brim can a keep rain out of your face.Choose footwear that is waterproof or water-resistant 
- and has good traction, especially if you will be walking on slippery or muddy terrain. Finally, pack extra dry clothing in your 
- backpack in case you need to change into something warmer and dry during a break.
+      `Wear lightweight, quick-drying fabrics such as polyester or nylon.`,
+      `A rain jacket or poncho will help keep you dry.`,
+      `A hat with a brim can a keep the sun and rain out of your face.`,
+      `Waterproof or water-resistant footwear with
+ good traction is key, especially if you will be walking on slippery or muddy terrain.`,
+      `Finally, pack extra dry clothing in your 
+ backpack in case you need to change into something warmer and dry during a break.`,
 
- Maybe try these:
-`,
-    productSuggestions: [],
+      ` Maybe try these:`,
+    ],
+    productSuggestions: [
+      {
+        name: "Outdoor ResearchHelium Rain",
+        main_url_image:
+          "https://www.rei.com/media/2c2ce22c-0b60-4b24-8b72-3e11dc77532d.jpg",
+        price: 159,
+      },
+    ],
   },
 ];
 

@@ -8,15 +8,22 @@ const RecentlyViewed = ({
   setDisplayedProduct,
   setShowSuggestions,
   customer,
+  showChat,
 }) => {
   const SixProducts = recentProducts.slice(0, 6);
 
   return (
-    <div className="shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded my-2 overflow-hidden my-10">
+    <div
+      className={
+        showChat
+          ? "shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded overflow-hidden my-10 brightness-50 "
+          : "shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded overflow-hidden my-10"
+      }
+    >
       <div className="text-white text-2xl pl-4 pt-2">
         Recommended Just for You
       </div>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px-4 pb-6 pt-2">
+      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px-4 pb-6 pt-2 ">
         {SixProducts.map((product, idx) => (
           <Product
             key={idx}

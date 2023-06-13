@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import OutStock from "../images/OutStock.png";
 
 const Cart = ({
@@ -20,12 +20,37 @@ const Cart = ({
     TotalPrice = TotalPrice - 30;
   }
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      lostCart();
+    }, 4000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+
+    // eslint-disable-next-line
+  }, []);
+
+  useEffect(() => {
+    if (!showOutStock) return;
+    const timeout = setTimeout(() => {
+      showReplacementSuggestions();
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+
+    // eslint-disable-next-line
+  }, [showOutStock]);
+
   function showReplacementSuggestions() {
     if (currentCustID === "63229e0ae634e04e58252a71") setShowReplacements(true);
   }
 
-  setTimeout(lostCart, 3000);
-  setTimeout(showReplacementSuggestions, 5000);
+  // setTimeout(lostCart, 5000);
+  // setTimeout(showReplacementSuggestions, 5000);
 
   return (
     <div className=" text-xl text-white bg-gradient-to-t bg-slate-800 p-8 z-20 rounded-lg">

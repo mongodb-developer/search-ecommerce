@@ -46,6 +46,7 @@ const Home = () => {
   const [viewedProduct, setViewedProduct] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showChat, setShowChat] = useState(false);
 
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
@@ -98,11 +99,12 @@ const Home = () => {
   useEffect(() => {
     if (searchTerm !== "" && searchTerm.length > 4) {
       getProducts();
-      // getMoreLikeThis();
+    }
+    if (searchTerm === "") {
+      setProducts(promotedItems);
     }
     if (submitted) {
       getProducts();
-      // getMoreLikeThis();
     }
     setSubmitted(false);
 
@@ -110,7 +112,6 @@ const Home = () => {
   }, [submitted, searchTerm, showSponsored, categories, market, currentPage]); // add all external values your effect function depends on - none in this case  -- currentPage
 
   useEffect(() => {
-    // products.length > 1 ||
     if (!showProductModal) return;
 
     let cat = products[0].category;
@@ -118,14 +119,15 @@ const Home = () => {
       cat = "Clothing";
     }
 
-    //    getMoreLikeThis(cat);
-
     // eslint-disable-next-line
   }, [showProductModal]);
 
   return (
     <div className="relative flex flex-col items-center min-h-screen py-2">
       <div className=" bg-white w-full ">
+        {showChat && (
+          <div className="absolute top-0 bottom-0 right-0 left-0 bg-smoke-dark "></div>
+        )}
         <Header
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
@@ -146,6 +148,7 @@ const Home = () => {
           showCart={showCart}
           setShowCart={setShowCart}
           setShowReplacements={setShowReplacements}
+          showChat={showChat}
         />
         {showLogin && (
           <Login
@@ -186,6 +189,7 @@ const Home = () => {
             setShowFilters={setShowFilters}
             showSponsored={showSponsored}
             setShowSponsored={setShowSponsored}
+            showChat={showChat}
           />
           {currentCustID !== "63273ef32a32f09fe5d8654f" && (
             <RecentlyViewed
@@ -196,6 +200,7 @@ const Home = () => {
               setViewedProduct={setViewedProduct}
               setShowSuggestions={setShowSuggestions}
               customer={customer}
+              showChat={showChat}
             />
           )}
           <div className="flex flex-grow space-x-2">
@@ -225,6 +230,7 @@ const Home = () => {
                 moreLikeThis={moreLikeThis}
                 setMoreLikeThis={setMoreLikeThis}
                 searchTerm={searchTerm}
+                showChat={showChat}
               />
             ) : (
               <div className="mt-20 py-2 text-center text-black w-full text-6xl rounded-lg">
@@ -249,8 +255,8 @@ const Home = () => {
             />
           )}
 
-          <div className="fixed inset-x-0 bottom-20 ml-auto w-1/3 z-50 mr-12">
-            <ChatSection />
+          <div className="fixed inset-x-0 bottom-20 ml-auto w-1/3 z-10 mr-12">
+            <ChatSection showChat={showChat} setShowChat={setShowChat} />
           </div>
         </Container>
 

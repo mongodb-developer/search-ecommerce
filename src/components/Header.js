@@ -21,6 +21,7 @@ const Header = ({
   showCart,
   setShowCart,
   setShowReplacements,
+  showChat,
 }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [autoComplete, setAutoComplete] = useState([]);
@@ -81,26 +82,6 @@ const Header = ({
       console.error(error);
     }
   };
-  // useEffect(() => {
-  //   if (initial.current) {
-  //     initial.current = false;
-  //     return;
-  //   }
-  //   // BUILD OUT AUTOCOMPLETE TERMS
-  //   if (searchTerm === "") setShowSuggestions(false);
-  //   if (searchTerm !== "" && searchTerm.length > 3) {
-  //     fetchAC_Names(searchTerm);
-
-  //     if (autoComplete.length !== 0) {
-  //       setShowSuggestions(true);
-  //       return;
-  //     }
-  //     setShowSuggestions(false);
-  //   }
-  //   return;
-
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [searchTerm]);
 
   const handleSelectAutocomplete = (item) => {
     setSearchTerm(item.name);
@@ -122,7 +103,13 @@ const Header = ({
   return (
     <>
       <header>
-        <div className="container mx-auto px-6 py-3">
+        <div
+          className={
+            showChat
+              ? "container mx-auto px-6 py-3 brightness-50"
+              : "container mx-auto px-6 py-3"
+          }
+        >
           <div className="flex items-center justify-between">
             <div className="w-full text-green-600 text-2xl font-semibold cursor-pointer">
               MongoStore
@@ -222,7 +209,7 @@ const Header = ({
               />
             </form>
             {showSuggestions && (
-              <ul className="absolute inset-x-0 top-full border border-green-600 bg-white rounded-md z-20">
+              <ul className="absolute inset-x-0 top-full border border-green-600 bg-white rounded-md z-10">
                 {autoComplete.map((item) => {
                   return (
                     <li

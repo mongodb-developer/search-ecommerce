@@ -7,11 +7,15 @@ const Hero = ({
   setShowFilters,
   showSponsored,
   setShowSponsored,
+  showChat,
 }) => {
   return (
     <div
-      className="
-    h-48 w-full bg-cover bg-center rounded-md overflow-hidden relative bg-slate-500"
+      className={
+        showChat
+          ? "h-48 w-full bg-cover bg-center rounded-md overflow-hidden relative bg-slate-500 brightness-50"
+          : "h-48 w-full bg-cover bg-center rounded-md overflow-hidden relative bg-slate-500 "
+      }
     >
       <img
         src={HEROIMAGE}
