@@ -15,7 +15,7 @@ const ChatSection = ({ showChat, setShowChat }) => {
   const [suggestions, setSuggestions] = useState([]);
 
   return (
-    <div className="flex">
+    <div className="flex w-full ml-auto ">
       {showChatProducts && (
         <ChatProducts
           setShowChatProducts={setShowChatProducts}
@@ -25,8 +25,8 @@ const ChatSection = ({ showChat, setShowChat }) => {
       <div
         className={
           showChat
-            ? "bg-white flex flex-col w-full object-right z-auto rounded px-4"
-            : "flex flex-col w-full object-right z-auto rounded px-4"
+            ? "bg-white flex object-right z-auto rounded px-4 w-1/3 ml-auto  h-full overflow-scroll flex-col justify-end"
+            : "flex flex-col w-1/3 ml-auto object-right z-auto rounded px-4  h-full overflow-scroll"
         }
       >
         <div className="relative flex justify-center">

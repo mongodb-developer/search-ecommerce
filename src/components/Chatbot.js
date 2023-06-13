@@ -3,6 +3,7 @@ import { Configuration } from "openai";
 
 import Loading from "../images/Loading.gif";
 import PeekingDuck from "../images/PeekingDuck.png";
+import thinking from "../images/thinking.png";
 
 const PARAMS = {
   temperature: 0,
@@ -94,7 +95,7 @@ const Chatbot = ({
                   alt="box"
                   className="w-36 object-scale-down bg-yellow-300 rounded-lg my-4 mx-auto p-1 hover:scale-110 hover:bg-yellow-400 transition-transform duration-150"
                   onClick={() => {
-                    setSuggestions(messageExchange[idx]["productSuggestions"]);
+                    // setSuggestions(messageExchange[idx]["productSuggestions"]);
                     setShowChatProducts(true);
                     console.log(
                       "SUGGESTIONS: ",
@@ -104,11 +105,18 @@ const Chatbot = ({
                 />
               </>
             ) : (
-              <img
-                src={Loading}
-                alt="loading"
-                className="object-scale-down h-32 w-full my-auto"
-              />
+              <div className="flex w-1/4 mx-auto content-end">
+                <img
+                  src={Loading}
+                  alt="loading"
+                  className="object-scale-down h-32 w-full my-auto"
+                />
+                <img
+                  src={thinking}
+                  alt="thinking"
+                  className="flex object-scale-down h-16 w-full mt-auto "
+                />
+              </div>
             )}
           </div>
         ))}
@@ -164,7 +172,7 @@ const messageExchange = [
     productSuggestions: [
       {
         name: "Outdoor ResearchHelium Rain",
-        main_url_image:
+        main_image_url:
           "https://www.rei.com/media/2c2ce22c-0b60-4b24-8b72-3e11dc77532d.jpg",
         price: 159,
       },

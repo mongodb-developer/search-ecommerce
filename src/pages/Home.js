@@ -255,7 +255,7 @@ const Home = () => {
             />
           )}
 
-          <div className="fixed inset-x-0 bottom-20 ml-auto w-1/3 z-10 mr-12">
+          <div className="fixed inset-x-0 bottom-16 ml-auto z-10 mr-12">
             <ChatSection showChat={showChat} setShowChat={setShowChat} />
           </div>
         </Container>
