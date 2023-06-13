@@ -82,7 +82,7 @@ const Chatbot = ({
 
   // "w-full mb-4 max-h-128 "
   return (
-    <div className="w-full mb-4 max-h-128 flex flex-col overflow-scroll ">
+    <div className="w-full mb-4 max-h-128 flex flex-col overflow-y-auto">
       {questionList.length > 0 &&
         questionList.map((question, idx) => (
           <div key={idx}>
@@ -95,7 +95,7 @@ const Chatbot = ({
                   alt="box"
                   className="w-36 object-scale-down bg-yellow-300 rounded-lg my-4 mx-auto p-1 hover:scale-110 hover:bg-yellow-400 transition-transform duration-150"
                   onClick={() => {
-                    // setSuggestions(messageExchange[idx]["productSuggestions"]);
+                    setSuggestions(messageExchange[idx]["productSuggestions"]);
                     setShowChatProducts(true);
                     console.log(
                       "SUGGESTIONS: ",
@@ -114,7 +114,7 @@ const Chatbot = ({
                 <img
                   src={thinking}
                   alt="thinking"
-                  className="flex object-scale-down h-16 w-full mt-auto "
+                  className="flex object-scale-down h-12 w-full mt-auto "
                 />
               </div>
             )}
@@ -175,6 +175,36 @@ const messageExchange = [
         main_image_url:
           "https://www.rei.com/media/2c2ce22c-0b60-4b24-8b72-3e11dc77532d.jpg",
         price: 159,
+      },
+      {
+        name: "Tilley LTM6 Airflo Broad Brim Hat",
+        main_image_url:
+          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
+        price: 99,
+      },
+      {
+        name: "Tilley LTM6 Airflo Broad Brim Hat",
+        main_image_url:
+          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
+        price: 99,
+      },
+      {
+        name: "Outdoor ResearchHelium Rain",
+        main_image_url:
+          "https://www.rei.com/media/2c2ce22c-0b60-4b24-8b72-3e11dc77532d.jpg",
+        price: 159,
+      },
+      {
+        name: "Tilley LTM6 Airflo Broad Brim Hat",
+        main_image_url:
+          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
+        price: 99,
+      },
+      {
+        name: "Tilley LTM6 Airflo Broad Brim Hat",
+        main_image_url:
+          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
+        price: 99,
       },
     ],
   },

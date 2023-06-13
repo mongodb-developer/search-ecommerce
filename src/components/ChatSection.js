@@ -15,21 +15,24 @@ const ChatSection = ({ showChat, setShowChat }) => {
   const [suggestions, setSuggestions] = useState([]);
 
   return (
-    <div className="flex w-full ml-auto ">
+    <div className="flex w-full ml-auto max-h-screen ">
       {showChatProducts && (
-        <ChatProducts
-          setShowChatProducts={setShowChatProducts}
-          suggestions={suggestions}
-        />
+        <div className="absolute bottom-0 left-20 w-1/2 mx-auto ">
+          {" "}
+          <ChatProducts
+            setShowChatProducts={setShowChatProducts}
+            suggestions={suggestions}
+          />
+        </div>
       )}
       <div
         className={
           showChat
-            ? "bg-white flex object-right z-auto rounded px-4 w-1/3 ml-auto  h-full overflow-scroll flex-col justify-end"
-            : "flex flex-col w-1/3 ml-auto object-right z-auto rounded px-4  h-full overflow-scroll"
+            ? "bg-white flex object-right z-auto rounded px-4 w-1/3 ml-auto   flex-col justify-end overflow-y-auto"
+            : "flex flex-col w-1/3 ml-auto object-right z-auto rounded px-4  "
         }
       >
-        <div className="relative flex justify-center">
+        <div className="relative flex justify-center overflow-y-auto">
           <div className={!showChat ? "ml-auto" : "mx-auto"}>
             <img
               src={AskAnything}
@@ -47,7 +50,7 @@ const ChatSection = ({ showChat, setShowChat }) => {
           </div>
         </div>
         <Collapse isOpened={showChat}>
-          <div className="flex justify-center transition-all ease-in-out delay-150 duration-500 mb-6 ">
+          <div className="flex justify-center transition-all ease-in-out delay-150 duration-500 mb-6 overflow-y-auto ">
             <Chatbot
               showChat={showChat}
               setShowChat={setShowChat}

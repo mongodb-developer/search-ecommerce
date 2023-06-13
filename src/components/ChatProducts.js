@@ -1,12 +1,17 @@
 import React from "react";
+import LearnMore from "../images/LearnMore.png";
+import Needed from "../images/Needed.png";
 
 const ChatProducts = ({ suggestions, setShowChatProducts }) => {
   return (
-    <div className="relative bg-slate-800 text-xl  bg-gradient-to-t border-slate-800 border-8 p-2 z-20 rounded-lg mt-20 w-1/2">
-      <div className="text-white text-2xl pl-4 pt-2">Check them out!</div>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px-4 pb-6 pt-2 ">
+    <div className="relative bg-white text-xl border border-slate-700  p-2 z-20 rounded-lg mt-20 w-full">
+      <img src={Needed} alt="needed" className="mx-auto" />
+      <div className="grid gap-6 grid-cols-3 px-4 pb-6 pt-2 ">
         {suggestions.map((item, idx) => (
-          <div className="relative bg-white" key={item.idx}>
+          <div
+            className="relative bg-white p-4 text-center shadow-2xl rounded "
+            key={item.idx}
+          >
             <div className="mt-4  text-indigo-900">{item.name}</div>
             <img
               src={item.main_image_url}
@@ -14,15 +19,14 @@ const ChatProducts = ({ suggestions, setShowChatProducts }) => {
               className="object-scale-down h-16 w-full"
             />
             <div className="text-gray-500 mt-2">${item.price}</div>
-            <div className="w-5/6 mt-2  text-black p-2 border-t border-green-600 text-center mx-auto mb-10">
-              Add to Cart
-            </div>
+
             <hr></hr>
+            <img src={LearnMore} alt="info" className="w-1/2 mx-auto" />
           </div>
         ))}
       </div>
       <div
-        className="absolute top-2 right-2"
+        className="absolute bottom-2 right-2"
         onClick={() => {
           setShowChatProducts(false);
         }}
@@ -32,7 +36,7 @@ const ChatProducts = ({ suggestions, setShowChatProducts }) => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
-          stroke="white"
+          stroke="black"
           className="w-6 h-6"
         >
           <path
