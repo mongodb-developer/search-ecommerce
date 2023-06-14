@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Configuration } from "openai";
+import ChatPeekProducts from "./ChatPeekProducts";
 
 import Loading from "../images/Loading.gif";
 import PeekingDuck from "../images/PeekingDuck.png";
@@ -90,7 +91,12 @@ const Chatbot = ({
             {responseList[idx] ? (
               <>
                 <Response textArray={responseList[idx]} />
-                <img
+                <ChatPeekProducts
+                  setShowChatProducts={setShowChatProducts}
+                  setSuggestions={setSuggestions}
+                  suggestions={messageExchange[idx]["productSuggestions"]}
+                />
+                {/* <img
                   src={PeekingDuck}
                   alt="box"
                   className="w-36 object-scale-down bg-yellow-300 rounded-lg my-4 mx-auto p-1 hover:scale-110 hover:bg-yellow-400 transition-transform duration-150"
@@ -102,7 +108,7 @@ const Chatbot = ({
                       messageExchange[idx]["productSuggestions"]
                     );
                   }}
-                />
+                /> */}
               </>
             ) : (
               <div className="flex w-1/4 mx-auto content-end">
@@ -171,10 +177,16 @@ const messageExchange = [
     ],
     productSuggestions: [
       {
-        name: "Outdoor ResearchHelium Rain",
+        name: "Cielo Rain Anorack",
         main_image_url:
-          "https://www.rei.com/media/2c2ce22c-0b60-4b24-8b72-3e11dc77532d.jpg",
-        price: 159,
+          "https://www.rei.com/media/2790d69a-9bbc-4290-9e98-ad531a3ce842.jpg?size=576x768",
+        price: 155,
+      },
+      {
+        name: "Rolltop Rucksack",
+        main_image_url:
+          "https://www.rei.com/media/cdd8bebf-abcc-422a-8dde-645f4646927a.jpg?size=784x588",
+        price: 125,
       },
       {
         name: "Tilley LTM6 Airflo Broad Brim Hat",
@@ -182,29 +194,24 @@ const messageExchange = [
           "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
         price: 99,
       },
+
       {
-        name: "Tilley LTM6 Airflo Broad Brim Hat",
+        name: "Rains Pants Regular",
         main_image_url:
-          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
-        price: 99,
+          "https://www.rei.com/media/2962c5eb-4b23-4644-ae15-b48636ca59a3.jpg?size=576x768",
+        price: 95,
       },
       {
-        name: "Outdoor ResearchHelium Rain",
+        name: "Cape",
         main_image_url:
-          "https://www.rei.com/media/2c2ce22c-0b60-4b24-8b72-3e11dc77532d.jpg",
-        price: 159,
+          "https://cdn.shopify.com/s/files/1/0310/5600/3204/products/RP1_NAV_1000x.jpg?v=1585232107",
+        price: 125,
       },
       {
-        name: "Tilley LTM6 Airflo Broad Brim Hat",
+        name: "Ducks' Back Rain Cover",
         main_image_url:
-          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
-        price: 99,
-      },
-      {
-        name: "Tilley LTM6 Airflo Broad Brim Hat",
-        main_image_url:
-          "https://www.rei.com/media/1b3d77cd-a778-494a-8856-2ac7f0a96ed5.jpg?size=576x768",
-        price: 99,
+          "https://www.rei.com/media/03d857d4-f63d-4855-9ab6-feb9eb4ec42e.jpg?size=784x588",
+        price: 29,
       },
     ],
   },

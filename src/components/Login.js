@@ -6,7 +6,7 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
 
   const onSubmit = (data) => {
     console.log(data.email);
-    if (data.email.toLowerCase() === "amaleal@gmail.com")
+    if (data.email.toLowerCase() === "karen@gmail.com")
       setCurrentCustID("63229e0ae634e04e58252a74");
     if (data.email.toLowerCase() === "scott@streammeup.com")
       setCurrentCustID("63229e0ae634e04e58252a71");

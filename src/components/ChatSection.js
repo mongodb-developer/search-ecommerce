@@ -28,16 +28,16 @@ const ChatSection = ({ showChat, setShowChat }) => {
       <div
         className={
           showChat
-            ? "bg-white flex object-right z-auto rounded px-4 w-1/3 ml-auto   flex-col justify-end overflow-y-auto"
+            ? "bg-white flex object-right z-auto rounded px-4 w-1/3 ml-auto   flex-col justify-end "
             : "flex flex-col w-1/3 ml-auto object-right z-auto rounded px-4  "
         }
       >
-        <div className="relative flex justify-center overflow-y-auto">
-          <div className={!showChat ? "ml-auto" : "mx-auto"}>
+        <div className="relative flex justify-center ">
+          <div className={!showChat ? "ml-auto" : "mx-auto w-1/2 "}>
             <img
               src={AskAnything}
               alt="ChatInvite"
-              className="object-contain w-96 top-16 rounded-md my-auto mx-auto cursor-pointer"
+              className="object-contain w-96 top-16 rounded-md my-auto mx-auto cursor-pointer "
             />
             {!showChat && (
               <img
@@ -49,6 +49,7 @@ const ChatSection = ({ showChat, setShowChat }) => {
             )}
           </div>
         </div>
+        {showChat && <div className="border-b-2 border-black w-full"></div>}
         <Collapse isOpened={showChat}>
           <div className="flex justify-center transition-all ease-in-out delay-150 duration-500 mb-6 overflow-y-auto ">
             <Chatbot

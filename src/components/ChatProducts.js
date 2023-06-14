@@ -1,11 +1,11 @@
 import React from "react";
-import LearnMore from "../images/LearnMore.png";
+
 import Needed from "../images/Needed.png";
 
 const ChatProducts = ({ suggestions, setShowChatProducts }) => {
   return (
     <div className="relative bg-white text-xl border border-slate-700  p-2 z-20 rounded-lg mt-20 w-full">
-      <img src={Needed} alt="needed" className="mx-auto" />
+      <img src={Needed} alt="needed" className="mx-auto w-3/4" />
       <div className="grid gap-6 grid-cols-3 px-4 pb-6 pt-2 ">
         {suggestions.map((item, idx) => (
           <div
@@ -19,9 +19,6 @@ const ChatProducts = ({ suggestions, setShowChatProducts }) => {
               className="object-scale-down h-16 w-full"
             />
             <div className="text-gray-500 mt-2">${item.price}</div>
-
-            <hr></hr>
-            <img src={LearnMore} alt="info" className="w-1/2 mx-auto" />
           </div>
         ))}
       </div>

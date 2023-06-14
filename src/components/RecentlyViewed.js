@@ -16,8 +16,8 @@ const RecentlyViewed = ({
     <div
       className={
         showChat
-          ? "shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded overflow-hidden my-10 brightness-50 "
-          : "shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded overflow-hidden my-10"
+          ? "shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded overflow-hidden my-10 brightness-50 hover:scale-110 transition-transform duration-500"
+          : "shadow-2xl bg-gradient-to-r from-green-900 to-black w-full rounded overflow-hidden my-10 hover:scale-110 transition-transform duration-500"
       }
     >
       <div className="text-white text-2xl pl-4 pt-2">
