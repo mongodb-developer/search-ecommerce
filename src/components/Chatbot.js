@@ -79,11 +79,9 @@ const Chatbot = ({
 
     setUserInput("");
   };
-  //  <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
 
-  // "w-full mb-4 max-h-128 "
   return (
-    <div className="w-full mb-4 max-h-128 flex flex-col overflow-y-auto">
+    <div className="w-full mb-4 flex flex-col overflow-y-auto max-h-screen">
       {questionList.length > 0 &&
         questionList.map((question, idx) => (
           <div key={idx}>
@@ -96,19 +94,6 @@ const Chatbot = ({
                   setSuggestions={setSuggestions}
                   suggestions={messageExchange[idx]["productSuggestions"]}
                 />
-                {/* <img
-                  src={PeekingDuck}
-                  alt="box"
-                  className="w-36 object-scale-down bg-yellow-300 rounded-lg my-4 mx-auto p-1 hover:scale-110 hover:bg-yellow-400 transition-transform duration-150"
-                  onClick={() => {
-                    setSuggestions(messageExchange[idx]["productSuggestions"]);
-                    setShowChatProducts(true);
-                    console.log(
-                      "SUGGESTIONS: ",
-                      messageExchange[idx]["productSuggestions"]
-                    );
-                  }}
-                /> */}
               </>
             ) : (
               <div className="flex w-1/4 mx-auto content-end">
@@ -155,7 +140,45 @@ const messageExchange = [
       `Here is a list of some practical in-stock items you can check out:
 `,
     ],
-    productSuggestions: [],
+    productSuggestions: [
+      {
+        name: " Stretch Zion Hiking Shorts",
+        main_image_url:
+          "https://www.rei.com/media/38275c4e-9398-4469-8bd0-5b87c14b8823.jpg?size=576x768",
+        price: 75,
+      },
+      {
+        name: "Parallel Polarized Sunglasses",
+        main_image_url:
+          "https://www.rei.com/media/8642548f-9e7f-4393-b7f2-5e4f3ef721c2.jpg",
+        price: 149,
+      },
+
+      {
+        name: "Sun Protective Shirt",
+        main_image_url:
+          "https://www.rei.com/media/3bac8270-75a0-4d37-9b1c-dce3dccf53d6.jpg?size=576x768",
+        price: 110,
+      },
+      {
+        name: "Sun Sleeves",
+        main_image_url:
+          "https://www.rei.com/media/ceeb4f27-7303-4387-81be-0affa9011c0a.jpg?size=784x588",
+        price: 35,
+      },
+      {
+        name: "Buff EcoStretch Neckwear",
+        main_image_url:
+          "https://www.rei.com/media/dee50667-6965-4ff2-bb97-d1e1ecd71ff5.jpg?size=576x768",
+        price: 38,
+      },
+      {
+        name: "Thinksport Zinc Sunscreen",
+        main_image_url:
+          "https://www.rei.com/media/63a81eaf-ded6-4942-a203-c6ee6a103879.jpg?size=784x588",
+        price: 15,
+      },
+    ],
   },
   {
     index: 1,
