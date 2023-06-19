@@ -22,7 +22,7 @@ const ChatPeekProducts = ({
         <img
           src={SeeMore}
           alt="more"
-          className=" w-48 object-scale-down"
+          className="hover:scale-110 cursor-pointer w-48 object-scale-down transition duration-300 ease-in-out"
           onClick={() => setShowChatProducts(true)}
         />
       </div>
