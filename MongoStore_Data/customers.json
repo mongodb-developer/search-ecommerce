@@ -1,0 +1,618 @@
+[{
+  "_id": {
+    "$oid": "63229e0ae634e04e58252a73"
+  },
+  "address": {
+    "street": "37 Colorado Place",
+    "city": "Chivilcoy"
+  },
+  "email": "hpg@kafka-connector.com",
+  "first_name": "Hans-Peter",
+  "gender": "Male",
+  "last_name": "Grahsl",
+  "phone ": "758-999-0375",
+  "image": "https://avatars.githubusercontent.com/u/7030308?v=4",
+  "recommendedProducts": [
+    {
+      "product": {
+        "$oid": "63209117e41329d01899dc68"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Mobile Phones & Communication",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/41YLlsHMV5L.jpg",
+      "marketplace": null,
+      "name": "Protective TPU Case with Screen Protector for iPhone 4 and iPhone 4S - Smoke",
+      "price": 29.6,
+      "timestamp": {
+        "$date": "2022-10-04T20:05:27.850Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899d9c1"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Mobile Phones & Communication",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/51zsx7s7oML.jpg",
+      "marketplace": null,
+      "name": "Clear Cover Case with White Rim and Screen Protector for iPhone 5 and iPhone SE",
+      "price": 36.91,
+      "timestamp": {
+        "$date": "2022-10-04T20:04:21.322Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899db38"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Furniture",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/71uMsNcCVuL.jpg",
+      "marketplace": null,
+      "name": "Nylon Braided Lightning to USB A Cable, MFi Certified Apple iPhone Charger, Silver, 6-Foot",
+      "price": 18.26,
+      "timestamp": {
+        "$date": "2022-10-03T22:13:59.750Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899d92a"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cell Phones & Accessories",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/41BWR3RlFzL.jpg",
+      "marketplace": null,
+      "name": "Ultra-Clear High Definition (HD) Glass Screen Protector for iPhone 6 and iPhone 6s",
+      "price": 74.71,
+      "timestamp": {
+        "$date": "2022-10-03T22:13:48.349Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d6a7"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Mobiles & Accessories",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/61xLJVKYaKL.jpg",
+      "marketplace": null,
+      "name": "Dual-Layer Case for iPhone Xs, Black",
+      "price": 38.99,
+      "timestamp": {
+        "$date": "2022-10-03T22:13:45.849Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899daf6"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Mobiles & Accessories",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/51oKprymykL.jpg",
+      "marketplace": null,
+      "name": "PC/Silicon Case for iPhone 5C (White/Pink)",
+      "price": 48.53,
+      "timestamp": {
+        "$date": "2022-10-03T22:13:41.249Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899da32"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Mujeres",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/81njUOeZDSL.jpg",
+      "marketplace": null,
+      "name": "Amazon CollectionPlatinum-Plated Sterling Silver Swarovski Zirconia Asscher Cut Antique Ring Set, Size 5",
+      "price": 44.11,
+      "timestamp": {
+        "$date": "2022-10-03T22:10:29.023Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "63229e0ae634e04e58252a74"
+  },
+  "address": {
+    "street": "384 Pierstorff Road",
+    "city": "Eusébio"
+  },
+  "email": "karen@gmail.com",
+  "first_name": "Karen",
+  "gender": "Female",
+  "last_name": "Huaulme",
+  "phone ": "192-751-7831",
+  "image": "https://kwh-demos.s3.amazonaws.com/Karen2.JPG",
+  "cart": [
+    {
+      "name": "Jo Malone London English Pear & Freesia Soap",
+      "price": 30,
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2415016-main-zoom.jpg?imwidth=612"
+    },
+    {
+      "name": "Afterglow Sensual Shine Hydrating Lipstick",
+      "price": 32,
+      "main_image_url": "https://media.kohlsimg.com/is/image/kohls/6176366_Voltage?wid=1200&hei=1200&op_sharpen=1"
+    },
+    {
+      "name": "Olaplex No. 4 Bond Maintenance™ Shampoo",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2118867-main-zoom.jpg?imwidth=612",
+      "price": 29
+    }
+  ],
+  "recommendedProducts": [
+    {
+      "product": {
+        "$oid": "647f817e75ec61e054d359a4"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cosmetics",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2643435-main-zoom.jpg?imwidth=612",
+      "marketplace": null,
+      "name": "Yves Saint Laurent Candy Glaze Lip Gloss Stick",
+      "price": 39,
+      "timestamp": {
+        "$date": "2022-10-04T18:35:59.701Z"
+      },
+      "main_description": "Lipstick, Lip Gloss, and Lip Balm & Treatment. The shine of a gloss with nourishment of a balm. A luxurious lip gloss stick with vitamin E and hyaluronic acid for medium coverage and lasting shine."
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d7f5"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cosmetics",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2635217-main-zoom.jpg?imwidth=1224",
+      "marketplace": null,
+      "name": "innisfree Green Tea Hyaluronic Acid Hydrating Moisturizer",
+      "price": 29,
+      "timestamp": {
+        "$date": "2022-10-04T18:35:31.941Z"
+      },
+      "main_description": "A daily face cream infused with green tea, hyaluronic acid, and squalane to deliver intensive moisture and hydration for visibly glowing skin for dry, combination, or normal skin."
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d621"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cosmetics",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2520419-main-zoom.jpg?imwidth=612",
+      "marketplace": null,
+      "name": "Hoola Bronzer",
+      "price": 35,
+      "timestamp": {
+        "$date": "2022-10-04T18:35:12.648Z"
+      },
+      "main_description": "An award-winning, silky-soft powder bronzer with a natural-looking matte finish available in four shades: Hoola, Hoola Lite, Hoola Toasted, and Hoola Caramel. Benefit Cosmetics’ bestselling powder bronzer quickly warms up your complexion and gives a classic matte finish. All four shades feature the same soft, blendable formula that made the original Hoola a cult favorite."
+    },
+    {
+      "product": {
+        "$oid": "647f817e75ec61e054d359a1"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cosmetics",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2078483-main-zoom.jpg?imwidth=612",
+      "marketplace": null,
+      "name": "Fenty Beauty by Rihanna Face & Body Kabuki Brush 160",
+      "price": 34,
+      "timestamp": {
+        "$timestamp": {
+          "t": 387,
+          "i": 2755587294
+        }
+      },
+      "main_description": "A face and body kabuki brush with a custom, angled design for blending liquid and powder formulas. This brush has soft, synthetic bristles at the ultimate density, making it perfect for blending all formulas. The unique, angled brush head was designed for effortless diffusing, and the rounded handle provides comfortable control for a total-body-buffing experience."
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d511"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cosmetics",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s1966258-main-zoom.jpg?imwidth=612",
+      "marketplace": null,
+      "name": "LANEIGE Lip Sleeping Mask Intense Hydration with Vitamin C",
+      "price": 24,
+      "timestamp": {
+        "$date": "2022-10-04T18:01:28.370Z"
+      },
+      "main_description": " A leave-on lip mask that delivers intense moisture and antioxidants while you sleep with Berry Fruit Complex™, Murumuru seed and Shea butter."
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899dc11"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Cosmetics",
+      "main_image_url": "https://www.sephora.com/productimages/sku/s2641587-main-zoom.jpg?imwidth=612",
+      "marketplace": null,
+      "name": "NARS Mini Blush and Lip Gloss Duo Set",
+      "price": 27,
+      "timestamp": {
+        "$date": "2022-10-03T23:42:15.205Z"
+      },
+      "main_description": "A set featuring a mini blush and mini Afterglow Lip Shine, both in award-winning peachy pink shade with shimmer finish.."
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899ddb5"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Women",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/71yIXO3hrZL.jpg",
+      "marketplace": null,
+      "name": "10k Rose Gold Diamond Leaf Ring (1/12cttw, I-J Color, I2-I3 Clarity), Size 7",
+      "price": 70.26,
+      "timestamp": {
+        "$date": "2022-10-03T22:09:02.999Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "63229e0ae634e04e58252a72"
+  },
+  "address": {
+    "street": "12960 Green Ridge Lane",
+    "city": "Cachadinha"
+  },
+  "email": "zelda@toplist.cz",
+  "first_name": "Zelda",
+  "gender": "Female",
+  "last_name": "Wilder",
+  "phone ": "642-888-0250",
+  "image": "https://images.pexels.com/photos/2380794/pexels-photo-2380794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  "recommendedProducts": [
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899dc79"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Women",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/71iUcEYceGL.jpg",
+      "marketplace": null,
+      "name": "Platinum-Plated Sterling Silver Swarovski Zirconia 3 cttw Princess Ring, Size 7",
+      "price": 73.2,
+      "timestamp": {
+        "$date": "2022-10-04T01:49:04.334Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899d9b7"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Furniture",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/81GGkzggiQL.jpg",
+      "marketplace": null,
+      "name": "Elevated Cooling Pet Bed - Small",
+      "price": 19.74,
+      "timestamp": {
+        "$date": "2022-10-04T01:47:37.003Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d6f9"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Furniture",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/91395kFBwxL.jpg",
+      "marketplace": null,
+      "name": "Foldable, 14\" Metal Platform Bed Frame with Tool-Free Assembly, No Box Spring Needed - King",
+      "price": 22.66,
+      "timestamp": {
+        "$date": "2022-10-04T01:47:23.568Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209117e41329d01899d904"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "ウェブカメラ・IP電話機器",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/71cPW0T8DFL.jpg",
+      "marketplace": null,
+      "name": "Gaming Headset with Microphone for PC, Black",
+      "price": 70.54,
+      "timestamp": {
+        "$date": "2022-10-04T01:43:43.351Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d65b"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Dogs",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/615rRApwqCL.jpg",
+      "marketplace": null,
+      "name": "Pet Dog Bed Pad - 29 x 21 x 3 Inch, Grey Swirl",
+      "price": 20.6,
+      "timestamp": {
+        "$date": "2022-10-03T23:31:27.477Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d51d"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Furniture",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/61ZQCeXeWbL.jpg",
+      "marketplace": null,
+      "name": "Round Self Warming Pet Bed for Cat or Dog - 24 x 8 Inches",
+      "price": 90.23,
+      "timestamp": {
+        "$date": "2022-10-03T22:20:59.070Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d69f"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Dogs",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/61HdJpM3imL.jpg",
+      "marketplace": null,
+      "name": "Pet Dog Bed Pad - 46 x 29 x 4 Inch, Grey Swirl",
+      "price": 62.67,
+      "timestamp": {
+        "$date": "2022-10-03T22:20:49.102Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "63273ef32a32f09fe5d8654f"
+  },
+  "address": {
+    "street": "Austin, Texas",
+    "city": "Austin"
+  },
+  "email": "Pick A User",
+  "first_name": "NYC 2023",
+  "gender": "Male",
+  "last_name": "MongoDB .local",
+  "phone ": "740-632-7181",
+  "image": "https://images.pexels.com/photos/9018374/pexels-photo-9018374.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "recommendedProducts": [
+    {
+      "product": {
+        "$oid": "63209117e41329d01899dafa"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Women",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/91mkO7hfMqL.jpg",
+      "marketplace": null,
+      "name": "Sterling Silver Elephant Necklace and Earrings Jewelry Set",
+      "price": 16.01,
+      "timestamp": {
+        "$date": "2022-10-04T21:01:58.024Z"
+      }
+    },
+    {
+      "product": null,
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/html.jpg",
+      "marketplace": null,
+      "name": "HTML T-Shirt",
+      "price": 10,
+      "timestamp": {
+        "$date": "2022-10-04T21:01:39.710Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de2c"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/html.jpg",
+      "marketplace": null,
+      "name": "HTML T-Shirt",
+      "price": 39,
+      "timestamp": {
+        "$date": "2022-10-04T20:59:58.553Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de27"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/cplusplus.jpg",
+      "marketplace": null,
+      "name": "C++ Hoodie",
+      "price": 49,
+      "timestamp": {
+        "$date": "2022-10-04T20:26:55.549Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de2d"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/vscode.jpg",
+      "marketplace": null,
+      "name": "VS Code T-Shirt",
+      "price": 39,
+      "timestamp": {
+        "$date": "2022-10-04T20:26:45.617Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de28"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/vite.jpg",
+      "marketplace": null,
+      "name": "Vite T-Shirt",
+      "price": 39,
+      "timestamp": {
+        "$date": "2022-10-04T20:03:57.391Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de2b"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/github.jpg",
+      "marketplace": null,
+      "name": "GitHub Mask",
+      "price": 19,
+      "timestamp": {
+        "$date": "2022-10-04T20:03:52.525Z"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "63229e0ae634e04e58252a71"
+  },
+  "address": {
+    "street": "38 Happy Street",
+    "city": "Livadiya"
+  },
+  "email": "scott@streammeup.com",
+  "first_name": "Scott",
+  "gender": "Male",
+  "last_name": "Capista",
+  "phone ": "740-632-7181",
+  "image": "https://images.pexels.com/photos/845457/pexels-photo-845457.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  "cart": [
+    {
+      "name": "REI Co-op Base Camp 6 Tent",
+      "main_image_url": "https://www.rei.com/media/769e4452-446b-4c41-9449-1535663a1532.jpg?size=784x588",
+      "price": 549
+    },
+    {
+      "main_image_url": "https://www.rei.com/media/8f0f89e8-7aed-4f94-90d9-186f708568f0.jpg?size=784x588",
+      "name": "Lowa Renegade GTX Mid Hiking Boots",
+      "price": 255
+    },
+    {
+      "main_image_url": "https://www.rei.com/media/34795c0f-721a-4f29-8fd3-3fd25f19e0ba.jpg?size=784x588",
+      "name": "Petzl Swift RL Headlamp",
+      "price": 30
+    }
+  ],
+  "recommendedProducts": [
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de28"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Outdoor",
+      "main_image_url": "https://www.rei.com/media/b5ca0d0b-3351-49e7-812e-104b180a03ef?size=2000",
+      "marketplace": null,
+      "name": "NEMO Aurora Highrise 6P Tent",
+      "price": 499.95,
+      "timestamp": {
+        "$date": "2022-10-04T20:59:45.717Z"
+      },
+      "main_description": "With a spacious, standing-height design, simple setup and vibrant colors, the 6-person NEMO Aurora Highrise 6P tent extends joy to camping adventures with family or friends."
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899dc76"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Furniture",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/81hCexvejYL.jpg",
+      "marketplace": null,
+      "name": "Portable Folding Fire Pit with Carrying Bag and Cooking Grate, 26 Inch",
+      "price": 9.06,
+      "timestamp": {
+        "$date": "2022-10-04T18:28:16.066Z"
+      }
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899dcb7"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Outdoor",
+      "main_image_url": "https://www.rei.com/media/5fc58615-bcca-46d0-a53c-8fd58af3afbe.jpg?size=784x588",
+      "marketplace": null,
+      "name": "Goal Zero Lighthouse 600 Lantern & USB Power Hub",
+      "price": 69.95,
+      "timestamp": {
+        "$date": "2022-10-04T18:27:01.653Z"
+      },
+      "main_description": "Light up your camp or patio with the Goal Zero Lighthouse 600 lantern & USB power hub. It provides adjustable, multidirectional light to make outdoor cooking, card games and scary stories even better."
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d5e1"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Outdoor Recreation",
+      "main_image_url": "https://images-na.ssl-images-amazon.com/images/I/91k6TAPTSJL.jpg",
+      "marketplace": null,
+      "name": "Extra Large Padded Folding Outdoor Camping Chair with Bag - 38 x 24 x 36 Inches, Black",
+      "price": 35.06,
+      "timestamp": {
+        "$date": "2022-10-04T18:26:50.856Z"
+      }
+    },
+    {
+      "product": null,
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Outdoor",
+      "main_image_url": "https://www.rei.com/media/5e81cfe6-aa8d-47f4-afe4-fcba63e6573f?size=2000",
+      "marketplace": null,
+      "name": "Marmot Always Summer Sleeping Bag",
+      "price": 219,
+      "timestamp": {
+        "$date": "2022-10-04T18:26:35.826Z"
+      },
+      "main_description": "Get luxurious quiltlike comfort while backpacking or camping with the Marmot Always Summer sleeping bag. It's filled with highly packable, 650-fill-power down for just-right warmth on cool nights."
+    },
+    {
+      "product": {
+        "$oid": "63209112e41329d01899d7df"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Outdoor",
+      "main_image_url": "https://www.rei.com/media/6bd546c6-4305-48a8-9e54-35b77bc4cda3?size=2000",
+      "marketplace": null,
+      "name": "NEMO Aurora Highrise 6P Footprint",
+      "price": 89.95,
+      "timestamp": {
+        "$date": "2022-10-04T01:43:13.045Z"
+      },
+      "main_description": "Extend the life of your tent with the NEMO Aurora Highrise 6P footprint made from polyurethane-coated, 68-denier polyester to withstand sharp, gravelly surfaces that can take a toll on your tent."
+    },
+    {
+      "product": {
+        "$oid": "6320911ce41329d01899de33"
+      },
+      "sourceTopic": "mongostore-pageviews",
+      "category": "Clothing",
+      "main_image_url": "https://search-demos.s3.us-east-2.amazonaws.com/tailwind.jpg",
+      "marketplace": null,
+      "name": "TailwindCSS Jacket",
+      "price": 39,
+      "timestamp": {
+        "$date": "2022-10-04T01:43:01.938Z"
+      }
+    }
+  ]
+}]
