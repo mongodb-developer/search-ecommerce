@@ -7,10 +7,10 @@ import Hero from "../components/Hero";
 import Pagination from "../components/Pagination";
 import ProductModal from "../components/ProductModal";
 import Products from "../components/Products";
-import Radio from "../components/Radio";
+// import Radio from "../components/Radio";
 import CheckBox from "../components/Checkbox";
 import axios from "axios";
-import RecentlyViewed from "../components/RecentlyViewed";
+import Recommended from "../components/Recommended";
 
 import UserSection from "../components/UserSection";
 import Login from "../components/Login";
@@ -41,8 +41,8 @@ const Home = () => {
     "63273ef32a32f09fe5d8654f"
   );
   const [cartItems, setCartItems] = useState([]);
-  const [customerRecentViews, setCustomerRecentViews] = useState([]);
-  const [moreLikeThis, setMoreLikeThis] = useState(recentProducts);
+  const [recommendedProducts, setRecommendedProducts] = useState([]);
+  const [moreLikeThis, setMoreLikeThis] = useState(recommendedBaseProducts);
   const [viewedProduct, setViewedProduct] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -78,7 +78,7 @@ const Home = () => {
       setCartItems(response.data.customer.cart);
 
       setCustomer(response.data.customer);
-      setCustomerRecentViews(response.data.customer.recentViews);
+      setRecommendedProducts(response.data.customer.recentViews);
       setOtherCustomers(response.data.otherCustomers);
       console.log("CART", cartItems);
     });
@@ -192,8 +192,8 @@ const Home = () => {
             showChat={showChat}
           />
           {currentCustID !== "63273ef32a32f09fe5d8654f" && (
-            <RecentlyViewed
-              recentProducts={customerRecentViews}
+            <Recommended
+              recommendedProducts={recommendedProducts}
               showProductModal={showProductModal}
               setShowProductModal={setShowProductModal}
               setDisplayedProduct={setDisplayedProduct}
@@ -413,7 +413,7 @@ const promotedItems = [
   // },
 ];
 
-const recentProducts = [
+const recommendedBaseProducts = [
   {
     _id: "6320911ce41329d01899de2f",
     category: "Clothing",
@@ -482,5 +482,3 @@ const recentProducts = [
     },
   },
 ];
-
-//absolute right-4 bottom-20 w-1/3 z-50

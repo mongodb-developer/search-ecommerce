@@ -1,8 +1,8 @@
 import React from "react";
 import Product from "./Product";
 
-const RecentlyViewed = ({
-  recentProducts,
+const Recommended = ({
+  recommendedProducts,
   setShowProductModal,
   showProductModal,
   setDisplayedProduct,
@@ -10,7 +10,7 @@ const RecentlyViewed = ({
   customer,
   showChat,
 }) => {
-  const SixProducts = recentProducts.slice(0, 6);
+  const SixProducts = recommendedProducts.slice(0, 6);
 
   return (
     <div
@@ -31,7 +31,7 @@ const RecentlyViewed = ({
             product={product}
             setShowProductModal={setShowProductModal}
             showProductModal={showProductModal}
-            source="RecentlyViewed"
+            source="Recommended"
             setDisplayedProduct={setDisplayedProduct}
             setShowSuggestions={setShowSuggestions}
             customer={customer}
@@ -42,4 +42,4 @@ const RecentlyViewed = ({
   );
 };
 
-export default RecentlyViewed;
+export default Recommended;
