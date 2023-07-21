@@ -5,7 +5,6 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data.email);
     if (data.email.toLowerCase() === "karen@gmail.com")
       setCurrentCustID("63229e0ae634e04e58252a74");
     if (data.email.toLowerCase() === "scott@streammeup.com")
@@ -40,11 +39,11 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
   //   };
 
   return (
-    <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-gray-900 to-gray-600 p-8 z-20 rounded-lg">
+    <div className="absolute top-20 right-20 text-xl text-white bg-gradient-to-t from-black to-slate-900 p-8 z-20 rounded-lg">
       {/* <CurrentUser customer={customer} /> */}
-      <div className="flex items-center space-x-8 justify-center">
-        LOG IN COMPONENT
-      </div>
+      {/* <div className="flex items-center space-x-8 justify-center">
+        Please log in to your account here.
+      </div> */}
       <div className="pt-10">
         <form
           className="bg-white py-8  mx-auto rounded px-8"
@@ -75,7 +74,7 @@ const Login = ({ setCurrentCustID, setShowLogin, currentCustID }) => {
           <div class="text-right">
             <button
               type="submit"
-              className="py-3 px-8 bg-green-500 text-white font-bold rounded w-full"
+              className="py-3 px-8 bg-green-700 text-white font-bold rounded w-full"
             >
               Log In
             </button>
