@@ -78,7 +78,7 @@ const Home = () => {
       setCartItems(response.data.customer.cart);
 
       setCustomer(response.data.customer);
-      setRecommendedProducts(response.data.customer.recentViews);
+      setRecommendedProducts(response.data.customer.recommendedProducts);
       setOtherCustomers(response.data.otherCustomers);
       console.log("CART", cartItems);
     });
