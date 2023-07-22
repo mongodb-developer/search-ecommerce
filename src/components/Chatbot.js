@@ -3,7 +3,7 @@ import { Configuration } from "openai";
 import ChatPeekProducts from "./ChatPeekProducts";
 
 import Loading from "../images/Loading.gif";
-import PeekingDuck from "../images/PeekingDuck.png";
+
 import thinking from "../images/thinking.png";
 
 const PARAMS = {
@@ -54,7 +54,7 @@ const Chatbot = ({
     let marker = questionList.length - 1;
     const timeout = setTimeout(() => {
       updateResponseList(marker);
-    }, 6000);
+    }, 5000);
 
     return () => {
       clearTimeout(timeout);
