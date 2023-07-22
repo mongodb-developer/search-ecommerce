@@ -3,13 +3,9 @@ import { ShoppingCartIcon } from "@heroicons/react/outline";
 
 const ProductModal = ({
   setShowProductModal,
-  showProductModal,
-  setDisplayedProduct,
+
   displayedProduct,
   setViewedProduct,
-  customer,
-  setShowSuggestions,
-  moreLikeThis,
 }) => {
   console.log("DISPLAYED PROD: ", displayedProduct);
   let price = 0;
@@ -23,8 +19,6 @@ const ProductModal = ({
       displayedProduct?.highlights
     );
   }
-
-  // console.log("DESCRIPTIONHIGHLIGHTS: ", descriptionWithHighlights);
 
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
@@ -53,22 +47,6 @@ const ProductModal = ({
             ></div>
           </div>
         </div>
-
-        {/* <div
-          className="mt-1 overflow-auto"
-          dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
-        ></div> */}
-        {/* {moreLikeThis.length !== 0 && (
-          <Recommended
-            recentProducts={moreLikeThis}
-            showProductModal={showProductModal}
-            setShowProductModal={setShowProductModal}
-            setDisplayedProduct={setDisplayedProduct}
-            setViewedProduct={setViewedProduct}
-            setShowSuggestions={setShowSuggestions}
-            customer={customer}
-          />
-        )} */}
 
         <ShoppingCartIcon
           className="h-8 w-8 p-1 absolute bottom-0 left-0 ml-3 mb-3 text-white bg-green-600 hover:bg-green-500 rounded-full"
