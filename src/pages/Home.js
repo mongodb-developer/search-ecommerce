@@ -48,6 +48,7 @@ const Home = () => {
   const [submitted, setSubmitted] = useState(false);
   const [showChat, setShowChat] = useState(false);
 
+  // INSERT NEW HTTPS ENDPOINTS HERE
   const getProductsEndpoint =
     "https://us-east-1.aws.data.mongodb-api.com/app/mongostore-elxkl/endpoint/products";
 
