@@ -16,10 +16,15 @@ const ProductModal = ({
   if (!displayedProduct.price.value) {
     price = displayedProduct.price;
   } else price = displayedProduct.price.value;
-  console.log("HIGHLIGHTS: ", displayedProduct.highlights);
-  const descriptionWithHighlights = buildHighlightString(
-    displayedProduct?.highlights
-  );
+
+  let descriptionWithHighlights = displayedProduct.description;
+  if (displayedProduct.highlights) {
+    descriptionWithHighlights = buildHighlightString(
+      displayedProduct?.highlights
+    );
+  }
+
+  // console.log("DESCRIPTIONHIGHLIGHTS: ", descriptionWithHighlights);
 
   return (
     <div className="fixed inset-0 z-20 p-20 flex justify-center bg-smoke-dark">
@@ -42,14 +47,17 @@ const ProductModal = ({
             <div className="text-gray-500 mt-2">${price}</div>
           </div>
           <div className="w-1/2 px-10 text-center">
-            {displayedProduct?.description}
+            <div
+              className="mt-1 overflow-auto"
+              dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
+            ></div>
           </div>
         </div>
 
-        <div
+        {/* <div
           className="mt-1 overflow-auto"
           dangerouslySetInnerHTML={{ __html: descriptionWithHighlights }}
-        ></div>
+        ></div> */}
         {/* {moreLikeThis.length !== 0 && (
           <Recommended
             recentProducts={moreLikeThis}
